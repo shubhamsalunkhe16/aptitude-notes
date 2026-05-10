@@ -3,23 +3,23 @@ module.exports = {
 
   formulas: [
     { title: "Basic Percentage Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "x% of y = (x/100) × y\nWhat % is X of Y = (X/Y) × 100\n\n% Increase = [(New-Old)/Old] × 100\n% Decrease = [(Old-New)/Old] × 100\n\nNew Value = Old × (1 ± %/100)" },
+      text: "x% of y = (x/100) × y\nWhat % is X of Y = (X/Y) × 100\n\n% Increase = [(New-Old)/Old] × 100\n% Decrease = [(Old-New)/Old] × 100\n\nNew Value = Old × (1 ± %/100)\n\nWHY: \"Percent\" = per-hundred. We scale any\nfraction to a base of 100 for comparison.\n\nEx: 20% of 350 = (20/100)×350 = 70\n    What % is 42 of 168? = (42/168)×100 = 25%" },
     { title: "Successive & Compound Change", color: "#2f9e44", bg: "#ebfbee",
-      text: "Successive a% and b%:\n  Net = a + b + (a×b)/100 %\n\nPopulation growth (n yrs):\n  P × (1 + r/100)^n\n\nDepreciation (n yrs):\n  P × (1 - r/100)^n\n\n+x% then -x% = -(x²/100)% LOSS" },
+      text: "Successive a% and b%:\n  Net = a + b + (a×b)/100 %\n\nPopulation growth (n yrs):\n  P × (1 + r/100)^n\n\nDepreciation (n yrs):\n  P × (1 - r/100)^n\n\n+x% then -x% = -(x²/100)% LOSS\n\nWHY: Second change applies on already-changed\nvalue, so cross-term (a×b)/100 appears.\n\nEx: +10% then +20%:\n  Net = 10+20+(10×20)/100 = 32%" },
     { title: "Reverse Percentage Change", color: "#e03131", bg: "#ffe3e3",
-      text: "A is x% more than B:\n  B less than A by x/(100+x)×100%\n\nA is x% less than B:\n  B more than A by x/(100-x)×100%\n\nPrice ↑x%, keep spending same:\n  ↓ consumption by x/(100+x)×100%" },
+      text: "A is x% more than B:\n  B less than A by x/(100+x)×100%\n\nA is x% less than B:\n  B more than A by x/(100-x)×100%\n\nPrice ↑x%, keep spending same:\n  ↓ consumption by x/(100+x)×100%\n\nWHY: Base changes! A=120 is +20% over B=100,\nbut B=100 is only 100/120 below A → 16.67%.\n\nEx: A is 25% more than B:\n  B less than A by 25/125×100 = 20%" },
     { title: "Discounts & Area Change", color: "#7048e8", bg: "#e5dbff",
-      text: "Two discounts a% and b%:\n  Single = a + b - (a×b)/100 %\n  (minus, NOT plus!)\n\nL ↑ a%, B ↑ b% → Area change:\n  = a + b + (a×b)/100 %\n  (same as successive change!)\n  Use -ve for decrease" },
+      text: "Two discounts a% and b%:\n  Single = a + b - (a×b)/100 %\n  (minus, NOT plus!)\n\nL ↑ a%, B ↑ b% → Area change:\n  = a + b + (a×b)/100 %\n  (same as successive change!)\n  Use -ve for decrease\n\nWHY: Discount is successive subtraction,\nso cross-term is subtracted.\n\nEx: Discounts 20% and 10%:\n  Single = 20+10-(20×10)/100 = 28%" },
     { title: "Election & Exam Formulas", color: "#e8590c", bg: "#fff4e6",
-      text: "Election (2 candidates):\n  Margin% = 2×Winner% - 100\n  Margin = Margin% × Total/100\n  Check for invalid votes!\n\nExam pass marks:\n  Pass = obtained + shortfall\n  Pass = Total × pass%/100" },
+      text: "Election (2 candidates):\n  Margin% = 2×Winner% - 100\n  Margin = Margin% × Total/100\n  Check for invalid votes!\n\nExam pass marks:\n  Pass = obtained + shortfall\n  Pass = Total × pass%/100\n\nWHY: If winner gets W%, loser gets (100-W)%,\nmargin = W-(100-W) = 2W-100.\n\nEx: Winner=60%: Margin% = 2×60-100 = 20%\n  If 40000 votes: margin = 20%×40000 = 8000" },
     { title: "Fraction ↔ Percentage Table", color: "#0c8599", bg: "#c3fae8",
-      text: "1/2=50%  1/3=33.33%  1/4=25%\n1/5=20%  1/6=16.67%  1/7=14.28%\n1/8=12.5% 1/9=11.11% 1/10=10%\n1/11=9.09% 1/12=8.33% 1/15=6.67%\n\nx% of y = y% of x (commutative!)\n8% of 50 = 50% of 8 = 4" }
+      text: "1/2=50%  1/3=33.33%  1/4=25%\n1/5=20%  1/6=16.67%  1/7=14.28%\n1/8=12.5% 1/9=11.11% 1/10=10%\n1/11=9.09% 1/12=8.33% 1/15=6.67%\n\nx% of y = y% of x (commutative!)\n8% of 50 = 50% of 8 = 4\n\nWHY: 1/n as % = (1/n)×100 = 100/n.\nMemorize these to avoid division.\n\nEx: 37.5% of 480 → 3/8 × 480 = 180" }
   ],
 
   types: [
     { num: "1", title: "Basic Percentage (x% of y)", color: "#2f9e44", bg: "#ebfbee",
       q: "What is 15% of 840?",
-      tree: "LOGIC:\nStep 1: 15% of 840 = (15/100) x 840\nStep 2: = 15 x 8.4 = 126\n\nTRICK:\nSplit: 10% of 840 = 84\n       5% of 840 = 42 (half of 10%)\n       15% = 84 + 42 = 126\n\nAnswer: 126 ✓" },
+      tree: "LOGIC:\nStep 1: 15% of 840 = (15/100) x 840\nStep 2: = 15 x 8.4 = 126\n\n  840 ──×15/100──→ 126\n\nTRICK:\nSplit: 10% of 840 = 84\n       5% of 840 = 42 (half of 10%)\n       15% = 84 + 42 = 126\n\nAnswer: 126 ✓" },
 
     { num: "2", title: "What % is X of Y", color: "#1971c2", bg: "#d0ebff",
       q: "45 is what percent of 180?",
@@ -31,19 +31,19 @@ module.exports = {
 
     { num: "4", title: "Successive Percentage Change", color: "#7048e8", bg: "#e5dbff",
       q: "The price of an item rises by 10% and then by another 20%. Find the net percentage increase.",
-      tree: "LOGIC:\nStep 1: 100 →+10%→ 110 →+20%→ 132\nStep 2: Net change = 32/100 = 32%\n\nTRICK:\nFormula: a + b + (a x b)/100\n= 10 + 20 + (10x20)/100 = 32%\nSPECIAL: +x% then -x% = -(x^2/100)%\n\nAnswer: 32% increase ✓" },
+      tree: "LOGIC:\nStep 1: 100 →+10%→ 110 →+20%→ 132\nStep 2: Net change = 32/100 = 32%\n\n  100 ──+10%──→ 110 ──+20%──→ 132\n\nTRICK:\nFormula: a + b + (a x b)/100\n= 10 + 20 + (10x20)/100 = 32%\nSPECIAL: +x% then -x% = -(x^2/100)%\n\nAnswer: 32% increase ✓" },
 
     { num: "5", title: "Population Growth / Depreciation", color: "#e03131", bg: "#ffe3e3",
       q: "The population of a town is 50000 and it grows at 10% per year. What will the population be after 3 years?",
-      tree: "LOGIC:\nStep 1: Year-by-year:\n  Yr 0: 50000\n  Yr 1: 55000 (x1.1)\n  Yr 2: 60500 (x1.1)\n  Yr 3: 66550 (x1.1)\n\nTRICK:\nFormula: P = P0 x (1 + r/100)^n\n= 50000 x (1.1)^3 = 50000 x 1.331\n= 66550\n\nAnswer: 66550 ✓" },
+      tree: "LOGIC:\nStep 1: Year-by-year:\n  Yr 0: 50000\n  Yr 1: 55000 (x1.1)\n  Yr 2: 60500 (x1.1)\n  Yr 3: 66550 (x1.1)\n\n  50000 ─x1.1─→ 55000 ─x1.1─→ 60500 ─x1.1─→ 66550\n\nTRICK:\nFormula: P = P0 x (1 + r/100)^n\n= 50000 x (1.1)^3 = 50000 x 1.331\n= 66550\n\nAnswer: 66550 ✓" },
 
     { num: "6", title: "Price ↑ x%, Reduce Consumption", color: "#0c8599", bg: "#c3fae8",
       q: "If the price of sugar rises by 25%, by what percentage must consumption be reduced to keep the total expenditure the same?",
-      tree: "LOGIC:\nStep 1: Let price=100, qty=100, spend=10000\nStep 2: New price=125, new qty=10000/125=80\nStep 3: Reduction = (100-80)/100 x 100 = 20%\n\nTRICK:\nFormula: x/(100+x) x 100%\n= 25/125 x 100 = 20%\nMemorize: +25%→-20%, +50%→-33.33%\n\nAnswer: Reduce by 20% ✓" },
+      tree: "LOGIC:\nStep 1: Let price=100, qty=100, spend=10000\nStep 2: New price=125, new qty=10000/125=80\nStep 3: Reduction = (100-80)/100 x 100 = 20%\n\n  Price:  100 ──+25%──→ 125\n  Qty:    100 ──-20%──→  80\n  Spend:  10000 ═══════ 10000 (same)\n\nTRICK:\nFormula: x/(100+x) x 100%\n= 25/125 x 100 = 20%\nMemorize: +25%→-20%, +50%→-33.33%\n\nAnswer: Reduce by 20% ✓" },
 
     { num: "7", title: "Area Change (Length + Breadth)", color: "#f08c00", bg: "#fff3bf",
       q: "If the length of a rectangle increases by 20% and the breadth decreases by 10%, what is the percentage change in its area?",
-      tree: "LOGIC:\nStep 1: L=100→120, B=100→90\nStep 2: Old area=10000, New=10800\nStep 3: Change = 800/10000 x 100 = +8%\n\nTRICK:\nFormula: a + b + (a x b)/100\n= 20 + (-10) + (20 x -10)/100\n= 20 - 10 - 2 = +8%\n\nAnswer: Area increases 8% ✓" },
+      tree: "LOGIC:\nStep 1: L=100→120, B=100→90\nStep 2: Old area=10000, New=10800\nStep 3: Change = 800/10000 x 100 = +8%\n\n  L: |████████████| +20% → |██████████████|\n  B: |██████████|  -10% → |█████████|\n  Area = L x B → net +8%\n\nTRICK:\nFormula: a + b + (a x b)/100\n= 20 + (-10) + (20 x -10)/100\n= 20 - 10 - 2 = +8%\n\nAnswer: Area increases 8% ✓" },
 
     { num: "8", title: "Pass Marks Problem", color: "#c92a2a", bg: "#fff5f5",
       q: "A student gets 40% and fails by 30 marks. Another student gets 60% and exceeds the pass marks by 20. Find the total marks.",
@@ -51,7 +51,7 @@ module.exports = {
 
     { num: "9", title: "Salary: A earns x% more than B", color: "#1971c2", bg: "#d0ebff",
       q: "A's salary is 20% more than B's. B is what % less than A?",
-      tree: "LOGIC:\nStep 1: Let B=100, A=120 (20% more)\nStep 2: Diff=20, Base=A=120\nStep 3: B less by (20/120)x100 = 16.67%\n\nTRICK:\nFormula: x/(100+x) x 100%\n= 20/120 x 100 = 16.67%\nPairs: +10%→-9.09%, +25%→-20%\n\nAnswer: B is 16.67% less than A ✓" },
+      tree: "LOGIC:\nStep 1: Let B=100, A=120 (20% more)\nStep 2: Diff=20, Base=A=120\nStep 3: B less by (20/120)x100 = 16.67%\n\n  B |████████████|  100\n  A |██████████████| 120 (+20%)\n  A→B: 20/120 = 16.67% less\n\nTRICK:\nFormula: x/(100+x) x 100%\n= 20/120 x 100 = 16.67%\nPairs: +10%→-9.09%, +25%→-20%\n\nAnswer: B is 16.67% less than A ✓" },
 
     { num: "10", title: "Expenditure on Items (Pie Chart)", color: "#2f9e44", bg: "#ebfbee",
       q: "A person spends 30% on rent, 20% on food, and 10% on transport, saving Rs.4800. Find the salary.",
@@ -59,18 +59,18 @@ module.exports = {
 
     { num: "11", title: "Fraction ↔ Percentage Conversion", color: "#e8590c", bg: "#fff4e6",
       q: "Convert 5/8 to %. Express 62.5% as fraction.",
-      tree: "LOGIC:\nStep 1: 5/8 = (5/8) x 100 = 62.5%\nStep 2: 62.5% = 625/1000 = 5/8\n\nTRICK:\nMemorize: 1/8=12.5%, so 5/8=5x12.5=62.5%\n  1/2=50%   1/3=33.33%  1/4=25%\n  1/5=20%   1/8=12.5%   3/8=37.5%\n  5/8=62.5% 3/4=75%     7/8=87.5%\n\nAnswer: 5/8 = 62.5% ✓" },
+      tree: "LOGIC:\nStep 1: 5/8 = (5/8) x 100 = 62.5%\nStep 2: 62.5% = 625/1000 = 5/8\n\n  |█████░░░| = 5/8 = 62.5%\n  |████████| = 8/8 = 100%\n\nTRICK:\nMemorize: 1/8=12.5%, so 5/8=5x12.5=62.5%\n  1/2=50%   1/3=33.33%  1/4=25%\n  1/5=20%   1/8=12.5%   3/8=37.5%\n  5/8=62.5% 3/4=75%     7/8=87.5%\n\nAnswer: 5/8 = 62.5% ✓" },
 
     { num: "12", title: "Percentage to Fraction Shortcut", color: "#7048e8", bg: "#e5dbff",
       q: "Find 37.5% of 480 using fraction shortcut.",
-      tree: "LOGIC:\nStep 1: 37.5% of 480\nStep 2: = (37.5/100) x 480\n        = 0.375 x 480 = 180\n\nTRICK:\n37.5% = 3/8, so (3/8) x 480 = 180\nCOMMUTATIVE: x% of y = y% of x\n8% of 25 = 25% of 8 = 2\n\nAnswer: 180 ✓" },
+      tree: "LOGIC:\nStep 1: 37.5% of 480\nStep 2: = (37.5/100) x 480\n        = 0.375 x 480 = 180\n\n  37.5% = 3/8\n  480 ──×3/8──→ 180\n\nTRICK:\n37.5% = 3/8, so (3/8) x 480 = 180\nCOMMUTATIVE: x% of y = y% of x\n8% of 25 = 25% of 8 = 2\n\nAnswer: 180 ✓" },
 
     { num: "13", title: "A is x% More, B is ?% Less", color: "#0c8599", bg: "#c3fae8",
       q: "A is 25% more than B. B is what % less than A?",
-      tree: "LOGIC:\nStep 1: Let B=100, A=125 (25% more)\nStep 2: B < A by 25, base = A = 125\nStep 3: (25/125) x 100 = 20%\n\nTRICK:\nFormula: x/(100+x) x 100%\n= 25/125 x 100 = 20%\nREVERSE: -20% → +20/(100-20)x100 = 25%\n\nAnswer: B is 20% less than A ✓" },
+      tree: "LOGIC:\nStep 1: Let B=100, A=125 (25% more)\nStep 2: B < A by 25, base = A = 125\nStep 3: (25/125) x 100 = 20%\n\n  B |████████████████| 100\n  A |████████████████████| 125\n      base shifts → 25/125 = 20%\n\nTRICK:\nFormula: x/(100+x) x 100%\n= 25/125 x 100 = 20%\nREVERSE: -20% → +20/(100-20)x100 = 25%\n\nAnswer: B is 20% less than A ✓" },
 
     { num: "14", title: "Election / Voting Problems", color: "#862e9c", bg: "#f3d9fa",
       q: "In an election, candidate A gets 60% of the votes and wins by 8000 votes. Find the total number of votes.",
-      tree: "LOGIC:\nStep 1: A=60%, B=40%, Margin=20%\nStep 2: 20% of Total = 8000\nStep 3: Total = 8000/0.20 = 40000\n  A=24000, B=16000, diff=8000 ✓\n\nTRICK:\nFormula: Total = Margin/(Winner%-50%)x50\nMargin% = 2xWinner% - 100 = 20%\nTotal = 8000 x 100/20 = 40000\n\nAnswer: 40000 votes ✓" }
+      tree: "LOGIC:\nStep 1: A=60%, B=40%, Margin=20%\nStep 2: 20% of Total = 8000\nStep 3: Total = 8000/0.20 = 40000\n  A=24000, B=16000, diff=8000 ✓\n\n  |████████████████████████░░░░░░░░░░░░░░░░|\n  |◄───── A=60% ─────────►|◄─── B=40% ───►|\n  |◄──────── margin=20% = 8000 ──────────►|\n\nTRICK:\nFormula: Total = Margin/(Winner%-50%)x50\nMargin% = 2xWinner% - 100 = 20%\nTotal = 8000 x 100/20 = 40000\n\nAnswer: 40000 votes ✓" }
   ]
 };

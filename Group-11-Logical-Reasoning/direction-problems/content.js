@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Compass Directions", color: "#2f9e44", bg: "#ebfbee",
-      text: "8 Directions:\n  NW   N   NE        Cardinal: N, S, E, W (90° apart)\n    \\  |  /         Ordinal:  NE, NW, SE, SW (45°)\n  W --+-- E\n    /  |  \\         N=0°  E=90°  S=180°  W=270°\n  SW   S   SE       NE=45° SE=135° SW=225° NW=315°" },
+      text: "8 Directions:\n  NW   N   NE        Cardinal: N, S, E, W (90° apart)\n    \\  |  /         Ordinal:  NE, NW, SE, SW (45°)\n  W --+-- E\n    /  |  \\         N=0°  E=90°  S=180°  W=270°\n  SW   S   SE       NE=45° SE=135° SW=225° NW=315°\n\nWHY: Full circle = 360°. 4 cardinals split it\n  into 90° sectors; ordinals bisect each at 45°.\n\nEx: Angle from N to SE = 135° (clockwise)\n  Opposite of NE = SW (flip both letters)" },
     { title: "Turn Rules", color: "#1971c2", bg: "#d0ebff",
-      text: "RIGHT = Clockwise 90°    LEFT = Anti-clockwise 90°\n\nRight cycle: N → E → S → W → N\nLeft  cycle: N → W → S → E → N\n\n180° turn = Opposite direction\n360° turn = Same direction\nFace N + Right = E    Face N + Left = W" },
+      text: "RIGHT = Clockwise 90°    LEFT = Anti-clockwise 90°\n\nRight cycle: N → E → S → W → N\nLeft  cycle: N → W → S → E → N\n\n180° turn = Opposite direction\n360° turn = Same direction\nFace N + Right = E    Face N + Left = W\n\nWHY: \"Right\" rotates your body CW (like a\n  clock). 4 right turns = 360° = full circle.\n\nEx: Facing W + turn right = N (W→N in CW)\n  Facing S + turn left = E (S→E in CCW)" },
     { title: "Shadow Rules (Sun)", color: "#e8590c", bg: "#fff4e6",
-      text: "MORNING: Sun=EAST  → Shadow=WEST\nEVENING: Sun=WEST  → Shadow=EAST\nNOON:    Sun overhead → No shadow\n\nMorning + shadow LEFT  → face NORTH\nMorning + shadow RIGHT → face SOUTH\nEvening: all rules REVERSE" },
+      text: "MORNING: Sun=EAST  → Shadow=WEST\nEVENING: Sun=WEST  → Shadow=EAST\nNOON:    Sun overhead → No shadow\n\nMorning + shadow LEFT  → face NORTH\nMorning + shadow RIGHT → face SOUTH\nEvening: all rules REVERSE\n\nWHY: Shadow falls opposite the sun.\n  If sun is to your right (E), shadow is left (W).\n  Facing N: E=right, W=left → shadow left.\n\nEx: Evening, shadow to right → sun(W) is left\n  → facing SOUTH (reverse of morning rule)" },
     { title: "Pythagoras & Direction", color: "#7048e8", bg: "#e5dbff",
-      text: "Distance = sqrt(x² + y²)\n  x = net East(+)/West(-)\n  y = net North(+)/South(-)\n\nTriplets: 3,4,5  5,12,13  8,15,17\n\nFinal direction from signs:\n  x>0,y>0=NE  x<0,y>0=NW\n  x>0,y<0=SE  x<0,y<0=SW" }
+      text: "Distance = sqrt(x² + y²)\n  x = net East(+)/West(-)\n  y = net North(+)/South(-)\n\nTriplets: 3,4,5  5,12,13  8,15,17\n\nFinal direction from signs:\n  x>0,y>0=NE  x<0,y>0=NW\n  x>0,y<0=SE  x<0,y<0=SW\n\nWHY: Each walk segment adds to x or y axis.\n  Net displacement forms a right triangle;\n  hypotenuse = straight-line distance.\n\nEx: 6km N then 8km E → sqrt(36+64) = 10 km\n  Signs: x=+8, y=+6 → NE direction" }
   ],
 
   types: [
@@ -51,7 +51,7 @@ module.exports = {
 
     { num: "10", title: "CW and CCW Turns", color: "#2f9e44", bg: "#ebfbee",
       q: "A person facing North makes 3 clockwise 90-degree turns followed by 1 anti-clockwise 90-degree turn. Which direction is he now facing?",
-      tree: "LOGIC:\nStep 1: 3 CW from N: N->E->S->W\nStep 2: 1 CCW from W: W->S\n\nTRICK:\nNet turns = CW - CCW = 3-1 = 2 right turns\nN + 2 right = N->E->S\nEach 4 net turns = full circle (cancel)\n\nAnswer: Facing SOUTH ✓" },
+      tree: "LOGIC:\nStep 1: 3 CW from N: N->E->S->W\nStep 2: 1 CCW from W: W->S\n\n  N(start)          W\n  ↓CW1→ E          ↓CCW\n  ↓CW2→ S          S(final)\n  ↓CW3→ W\n\nTRICK:\nNet turns = CW - CCW = 3-1 = 2 right turns\nN + 2 right = N->E->S\nEach 4 net turns = full circle (cancel)\n\nAnswer: Facing SOUTH ✓" },
 
     { num: "11", title: "Chain Walk Problem", color: "#1971c2", bg: "#d0ebff",
       q: "A person walks 5 km North, turns right and walks 3 km, turns right and walks 2 km, then turns left and walks 4 km. What is his distance and direction from the starting point?",
@@ -59,6 +59,6 @@ module.exports = {
 
     { num: "12", title: "Multiple Angle Turns", color: "#e8590c", bg: "#fff4e6",
       q: "A person facing South makes the following turns in sequence: 90 degrees clockwise, 180 degrees, then 90 degrees counter-clockwise. Which direction is he finally facing?",
-      tree: "LOGIC:\nStep 1: S -> 90CW -> W\nStep 2: W -> 180 -> E\nStep 3: E -> 90CCW -> N\n\nTRICK:\nSum angles: +90+180-90 = +180 net CW\nS + 180 = N (opposite)\n180=opposite, 360=same, 90=next CW\n\nAnswer: Facing NORTH ✓" }
+      tree: "LOGIC:\nStep 1: S -> 90CW -> W\nStep 2: W -> 180 -> E\nStep 3: E -> 90CCW -> N\n\n  S --90CW--> W --180--> E --90CCW--> N\n       N\n       ↑ final\n  W ---+--- E\n       |\n       S (start)\n\nTRICK:\nSum angles: +90+180-90 = +180 net CW\nS + 180 = N (opposite)\n180=opposite, 360=same, 90=next CW\n\nAnswer: Facing NORTH ✓" }
   ]
 };

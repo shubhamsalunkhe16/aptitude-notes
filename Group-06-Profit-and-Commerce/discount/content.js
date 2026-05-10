@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Basic Discount Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "Discount = Marked Price - Selling Price\nDiscount% = (Discount / MP) × 100\n\nSP = MP × (100 - D%) / 100\nMP = SP × 100 / (100 - D%)\n\nDiscount% is ALWAYS on Marked Price\nProfit% is ALWAYS on Cost Price\n\nRelation: CP → markup → MP → discount → SP" },
+      text: "Discount = Marked Price - Selling Price\nDiscount% = (Discount / MP) × 100\n\nSP = MP × (100 - D%) / 100\nMP = SP × 100 / (100 - D%)\n\nDiscount% is ALWAYS on Marked Price\nProfit% is ALWAYS on Cost Price\n\nRelation: CP → markup → MP → discount → SP\n\nWHY: Discount is reduction from MP.\n  D% uses MP as base (not CP or SP).\n  SP = MP minus the discount amount.\n\nEx: MP=1000, D%=30%\n  Disc=300, SP=1000×70/100=700" },
     { title: "Successive Discount Formulas", color: "#2f9e44", bg: "#ebfbee",
-      text: "Two successive discounts d1% and d2%:\n  SP = MP × (100-d1)/100 × (100-d2)/100\n\nSingle equivalent discount:\n  = d1 + d2 - (d1 × d2)/100\n\nThree successive discounts d1, d2, d3:\n  SP = MP × (100-d1)/100 × (100-d2)/100 × (100-d3)/100\n\nOrder does NOT matter:\n  20% then 10% = 10% then 20% = 28%" },
+      text: "Two successive discounts d1% and d2%:\n  SP = MP × (100-d1)/100 × (100-d2)/100\n\nSingle equivalent discount:\n  = d1 + d2 - (d1 × d2)/100\n\nThree successive discounts d1, d2, d3:\n  SP = MP × (100-d1)/100 × (100-d2)/100 × (100-d3)/100\n\nOrder does NOT matter:\n  20% then 10% = 10% then 20% = 28%\n\nWHY: 2nd discount applies to already-reduced price.\n  d1+d2 overcounts, so subtract overlap d1×d2/100.\n\nEx: d1=20%, d2=10%\n  Equiv = 20+10-(200/100) = 28% (not 30%)" },
     { title: "Markup & Profit After Discount", color: "#e8590c", bg: "#fff4e6",
-      text: "To earn P% profit after D% discount:\n  MP = CP × (100 + P%) / (100 - D%)\n\nMarkup m%, Discount d%:\n  Net Profit% = [(100+m)(100-d)/100] - 100\n\nBuy X Get Y Free:\n  Effective Discount% = Y/(X+Y) × 100\n\nFalse weight w instead of W:\n  Gain% = (W-w)/w × 100" },
+      text: "To earn P% profit after D% discount:\n  MP = CP × (100 + P%) / (100 - D%)\n\nMarkup m%, Discount d%:\n  Net Profit% = [(100+m)(100-d)/100] - 100\n\nBuy X Get Y Free:\n  Effective Discount% = Y/(X+Y) × 100\n\nFalse weight w instead of W:\n  Gain% = (W-w)/w × 100\n\nWHY: SP must = CP×(100+P%)/100.\n  But SP = MP×(100-D%)/100.\n  Equate and solve for MP.\n\nEx: CP=500, P%=20%, D%=10%\n  MP=500×120/90=Rs.666.67" },
     { title: "True Discount & Banker's Discount", color: "#7048e8", bg: "#e5dbff",
-      text: "True Discount (TD):\n  TD = (Amount × Rate × Time) / (100 + RT)\n  Present Worth = Amount - TD\n  PW = Amount × 100 / (100 + RT)\n\nBanker's Discount (BD):\n  BD = Simple Interest on Amount\n  BD = (Amount × Rate × Time) / 100\n\nRelation:\n  BD - TD = SI on TD\n  BD = TD × (100 + RT) / 100\n  TD² = PW × BD" }
+      text: "True Discount (TD):\n  TD = (Amount × Rate × Time) / (100 + RT)\n  Present Worth = Amount - TD\n  PW = Amount × 100 / (100 + RT)\n\nBanker's Discount (BD):\n  BD = Simple Interest on Amount\n  BD = (Amount × Rate × Time) / 100\n\nRelation:\n  BD - TD = SI on TD\n  BD = TD × (100 + RT) / 100\n  TD² = PW × BD\n\nWHY: TD = interest on Present Worth (PW).\n  BD = interest on full Amount (overestimates).\n  BD > TD always; difference = SI on TD.\n\nEx: Amt=1060, R=6%, T=1yr\n  PW=1060×100/106=1000, TD=60\n  BD=1060×6/100=63.60" }
   ],
 
   types: [
@@ -19,11 +19,11 @@ module.exports = {
 
     { num: "2", title: "Find Discount% Given MP and SP", color: "#1971c2", bg: "#d0ebff",
       q: "A bag marked at Rs.1500 is sold for Rs.1200. Find the discount percentage.",
-      tree: "LOGIC:\nStep 1: Discount = 1500-1200 = Rs.300\nStep 2: D% = (300/1500) x 100 = 20%\n\nTRICK:\nSP/MP = 1200/1500 = 4/5 = 80%\nDiscount = 100%-80% = 20%\nTRAP: D% is on MP, NOT on SP!\n\nAnswer: Discount = 20% ✓" },
+      tree: "LOGIC:\nStep 1: Discount = 1500-1200 = Rs.300\nStep 2: D% = (300/1500) x 100 = 20%\n\n  MP |████████████████████| 1500 (100%)\n  SP |████████████████    | 1200 (80%)\n     |                |░░░| Disc=300 (20%)\n\nTRICK:\nSP/MP = 1200/1500 = 4/5 = 80%\nDiscount = 100%-80% = 20%\nTRAP: D% is on MP, NOT on SP!\n\nAnswer: Discount = 20% ✓" },
 
     { num: "3", title: "Find Marked Price Given SP and D%", color: "#e8590c", bg: "#fff4e6",
       q: "After a 25% discount, an article is sold for Rs.600. Find the marked price.",
-      tree: "LOGIC:\nStep 1: 600 = MP x 75/100\nStep 2: MP = 600 x 100/75 = Rs.800\nStep 3: Check: 25% of 800=200, SP=600 ✓\n\nTRICK:\nMP = SP x 100/(100-D%)\n= 600 x 100/75 = Rs.800\n75% of MP = SP → MP = SP/0.75\n\nAnswer: Marked Price = Rs.800 ✓" },
+      tree: "LOGIC:\nStep 1: 600 = MP x 75/100\nStep 2: MP = 600 x 100/75 = Rs.800\nStep 3: Check: 25% of 800=200, SP=600 ✓\n\n  MP=? ──-25%──→ SP=600\n  MP=800 ──-200──→ SP=600\n\nTRICK:\nMP = SP x 100/(100-D%)\n= 600 x 100/75 = Rs.800\n75% of MP = SP → MP = SP/0.75\n\nAnswer: Marked Price = Rs.800 ✓" },
 
     { num: "4", title: "Successive Discounts (Two Discounts One After Another)", color: "#7048e8", bg: "#e5dbff",
       q: "A shopkeeper gives successive discounts of 20% and 10% on an article marked Rs.500. Find the final selling price.",
@@ -35,7 +35,7 @@ module.exports = {
 
     { num: "6", title: "Marked Price to Get Desired Profit After Discount", color: "#0c8599", bg: "#c3fae8",
       q: "A trader wants 20% profit after giving 10% discount. If CP is Rs.500, what should be the marked price?",
-      tree: "LOGIC:\nStep 1: SP needed = 500x120/100 = 600\nStep 2: 90% of MP = 600\n        MP = 600/0.9 = Rs.666.67\n\nTRICK:\nMP = CP x (100+P%)/(100-D%)\n= 500 x 120/90 = Rs.666.67\nMarkup = (666.67-500)/500 = 33.33%\n\nAnswer: MP = Rs.666.67 ✓" },
+      tree: "LOGIC:\nStep 1: SP needed = 500x120/100 = 600\nStep 2: 90% of MP = 600\n        MP = 600/0.9 = Rs.666.67\n\n  CP=500 ──+33%──→ MP=666.67 ──-10%──→ SP=600\n  (need 20% profit on CP=500)\n\nTRICK:\nMP = CP x (100+P%)/(100-D%)\n= 500 x 120/90 = Rs.666.67\nMarkup = (666.67-500)/500 = 33.33%\n\nAnswer: MP = Rs.666.67 ✓" },
 
     { num: "7", title: "Buy X Get Y Free (Effective Discount%)", color: "#862e9c", bg: "#f3d9fa",
       q: "A shop offers 'Buy 2 Get 1 Free'. What is the effective discount percentage?",
@@ -43,14 +43,14 @@ module.exports = {
 
     { num: "8", title: "Comparing Two Discount Offers", color: "#f08c00", bg: "#fff3bf",
       q: "Shop A offers 30% discount. Shop B offers successive discounts of 20% and 15%. Which is better for the buyer on same MP?",
-      tree: "LOGIC:\nStep 1: Let MP=100\n  A: 30% flat → SP=70\n  B: 100→80→68 (SP=68)\nStep 2: B cheaper by Rs.2 per 100\n\nTRICK:\nB equiv = 20+15-(20x15)/100 = 32%\nA=30% vs B=32% → B is better!\n  A: pay 70, B: pay 68\nBuyer saves more at Shop B\n\nAnswer: Shop B is better (32% vs 30%) ✓" },
+      tree: "LOGIC:\nStep 1: Let MP=100\n  A: 30% flat → SP=70\n  B: 100→80→68 (SP=68)\nStep 2: B cheaper by Rs.2 per 100\n\n  Shop A: MP=100 ──-30%──→ SP=70\n  Shop B: MP=100 ──-20%──→ 80 ──-15%──→ SP=68\n\nTRICK:\nB equiv = 20+15-(20x15)/100 = 32%\nA=30% vs B=32% → B is better!\n  A: pay 70, B: pay 68\nBuyer saves more at Shop B\n\nAnswer: Shop B is better (32% vs 30%) ✓" },
 
     { num: "9", title: "Discount on Discount vs Flat Discount Comparison", color: "#2f9e44", bg: "#ebfbee",
       q: "Which is better: a flat 40% discount OR two successive discounts of 25% and 20%? Compare for MP = Rs.1000.",
-      tree: "LOGIC:\nStep 1: Flat 40%: SP = 1000x0.6 = 600\nStep 2: 25%+20%: 1000→750→600\n  Both give SP = Rs.600\n\nTRICK:\nEquiv = 25+20-(25x20)/100 = 40%\nSame as flat! Both equal here.\nRule: d1+d2 > flat always UNLESS\nd1+d2-(d1d2/100) = flat exactly\n\nAnswer: Both are equal at 40% ✓" },
+      tree: "LOGIC:\nStep 1: Flat 40%: SP = 1000x0.6 = 600\nStep 2: 25%+20%: 1000→750→600\n  Both give SP = Rs.600\n\n  Flat:  MP=1000 ──-40%──→ SP=600\n  Succ:  MP=1000 ──-25%──→ 750 ──-20%──→ SP=600\n\nTRICK:\nEquiv = 25+20-(25x20)/100 = 40%\nSame as flat! Both equal here.\nRule: d1+d2 > flat always UNLESS\nd1+d2-(d1d2/100) = flat exactly\n\nAnswer: Both are equal at 40% ✓" },
 
     { num: "10", title: "True Discount vs Banker's Discount", color: "#1971c2", bg: "#d0ebff",
       q: "Find the true discount and banker's discount on Rs.1060 due in 1 year at 6% per annum.",
-      tree: "LOGIC:\nStep 1: TD = (AxRxT)/(100+RT)\n  = (1060x6x1)/106 = Rs.60\nStep 2: BD = (AxRxT)/100\n  = 6360/100 = Rs.63.60\nStep 3: PW = 1060-60 = Rs.1000\n\nTRICK:\nPW = Amount x 100/(100+RT)\n= 1060x100/106 = 1000\nTD = Amount - PW = 60\nBD = SI on Amount, BD > TD always!\n\nAnswer: TD = Rs.60, BD = Rs.63.60 ✓" }
+      tree: "LOGIC:\nStep 1: TD = (AxRxT)/(100+RT)\n  = (1060x6x1)/106 = Rs.60\nStep 2: BD = (AxRxT)/100\n  = 6360/100 = Rs.63.60\nStep 3: PW = 1060-60 = Rs.1000\n\n  PW=1000 ──[+6% SI]──→ Amount=1060\n  TD=60 (on PW)  vs  BD=63.60 (on Amt)\n\nTRICK:\nPW = Amount x 100/(100+RT)\n= 1060x100/106 = 1000\nTD = Amount - PW = 60\nBD = SI on Amount, BD > TD always!\n\nAnswer: TD = Rs.60, BD = Rs.63.60 ✓" }
   ]
 };

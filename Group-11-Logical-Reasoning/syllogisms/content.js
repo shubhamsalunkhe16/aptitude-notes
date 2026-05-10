@@ -4,22 +4,22 @@ module.exports = {
   formulas: [
     { title: "The Four Standard Propositions",
       color: "#1971c2", bg: "#d0ebff",
-      text: "A-type: All A are B   (Universal Affirmative)\nE-type: No A are B    (Universal Negative)\nI-type: Some A are B  (Particular Affirmative)\nO-type: Some A not B  (Particular Negative)\n\nREMEMBER: A E I O\n  All, nEgative, partIcular, Opposite" },
+      text: "A-type: All A are B   (Universal Affirmative)\nE-type: No A are B    (Universal Negative)\nI-type: Some A are B  (Particular Affirmative)\nO-type: Some A not B  (Particular Negative)\n\nREMEMBER: A E I O\n  All, nEgative, partIcular, Opposite\n\nWHY: Every syllogism premise maps to one of\n  these 4 forms; classify first, then apply rules.\n\nEx: \"Every cat is a pet\" → A-type (All cats are pets)\n  \"Not all dogs bite\" → O-type (Some dogs not bite)" },
     { title: "Venn Diagram Patterns",
       color: "#2f9e44", bg: "#ebfbee",
-      text: "All A are B  → A circle INSIDE B circle\nSome A are B → A and B OVERLAP\nNo A are B   → A and B SEPARATE\nSome A not B → Part of A OUTSIDE B\n\nAll A are B: A ⊆ B (subset)\nNo A are B:  A ∩ B = {} (disjoint)" },
+      text: "All A are B  → A circle INSIDE B circle\nSome A are B → A and B OVERLAP\nNo A are B   → A and B SEPARATE\nSome A not B → Part of A OUTSIDE B\n\nAll A are B: A ⊆ B (subset)\nNo A are B:  A ∩ B = {} (disjoint)\n\nWHY: Venn circles visually show set membership;\n  overlap = shared elements, separate = none shared.\n\nEx: All dogs are animals → (Dog) ⊂ (Animal)\n  No fish are birds → (Fish)  (Birds) apart" },
     { title: "Valid Conclusion Chains",
       color: "#e8590c", bg: "#fff4e6",
-      text: "All+All = All    (A+A=A)\nAll+No  = No     (A+E=E)\nSome+All = Some  (I+A=I)\nSome+No = Some-not (I+E=O)\n\nAll+Some = NO conclusion\nSome+Some = NO conclusion\nMiddle term MUST be distributed!" },
+      text: "All+All = All    (A+A=A)\nAll+No  = No     (A+E=E)\nSome+All = Some  (I+A=I)\nSome+No = Some-not (I+E=O)\n\nAll+Some = NO conclusion\nSome+Some = NO conclusion\nMiddle term MUST be distributed!\n\nWHY: The middle term links two sets;\n  it must cover all members (distributed)\n  so the chain is unbroken.\n\nEx: All A are B + All B are C → All A are C\n  (A⊂B, B⊂C → A⊂C, chain through B)" },
     { title: "Conversion Rules",
       color: "#7048e8", bg: "#e5dbff",
-      text: "All A are B  → Some B are A (A→I)\nNo A are B   → No B are A   (E→E)\nSome A are B → Some B are A (I→I)\nSome A not B → NO conversion (O→X)\n\nTRAP: All A are B ≠ All B are A\nOnly: All A are B → Some B are A" },
+      text: "All A are B  → Some B are A (A→I)\nNo A are B   → No B are A   (E→E)\nSome A are B → Some B are A (I→I)\nSome A not B → NO conversion (O→X)\n\nTRAP: All A are B ≠ All B are A\nOnly: All A are B → Some B are A\n\nWHY: Conversion swaps subject & predicate.\n  Universal Aff. loses info (A⊂B ≠ B⊂A),\n  so only weaker I-type survives.\n\nEx: All cats are animals → Some animals are cats ✓\n  Some cats not dogs → CANNOT convert ✗" },
     { title: "Distribution Table",
       color: "#e03131", bg: "#ffe3e3",
-      text: "Proposition  | Subject | Predicate\nAll S are P  |   YES   |    NO\nNo S are P   |   YES   |   YES\nSome S are P |   NO    |    NO\nSome S not P |   NO    |   YES\n\nUniversal → Subject distributed\nNegative  → Predicate distributed" },
+      text: "Proposition  | Subject | Predicate\nAll S are P  |   YES   |    NO\nNo S are P   |   YES   |   YES\nSome S are P |   NO    |    NO\nSome S not P |   NO    |   YES\n\nUniversal → Subject distributed\nNegative  → Predicate distributed\n\nWHY: \"Distributed\" = the term covers ALL its\n  members. Universal talks about all S;\n  negative excludes all P.\n\nEx: \"All dogs are animals\" → dogs=distributed\n  (all dogs), animals=not (only some animals)" },
     { title: "Modern Format Translations",
       color: "#0c8599", bg: "#c3fae8",
-      text: "\"Only A are B\"      = All B are A\n\"Only a few A are B\" = Some A are B\n                     + Some A are not B\n\"At least some A are B\" = Some A are B\n\"Not all A are B\"   = Some A are not B\n\nAlways convert to A/E/I/O first!" }
+      text: "\"Only A are B\"      = All B are A\n\"Only a few A are B\" = Some A are B\n                     + Some A are not B\n\"At least some A are B\" = Some A are B\n\"Not all A are B\"   = Some A are not B\n\nAlways convert to A/E/I/O first!\n\nWHY: Modern phrasing hides the standard form.\n  \"Only A are B\" restricts B to A, so B⊂A.\n\nEx: \"Only teachers are staff\" = All staff are\n  teachers (B⊂A). NOT all teachers are staff!" }
   ],
 
   types: [

@@ -3,15 +3,15 @@ module.exports = {
 
   formulas: [
     { title: "Core CI Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "Amount:  A = P × (1 + R/100)^T\nCompound Interest:  CI = A - P\n\nHalf-yearly:  A = P × (1 + R/200)^(2T)\nQuarterly:    A = P × (1 + R/400)^(4T)" },
+      text: "Amount:  A = P × (1 + R/100)^T\nCompound Interest:  CI = A - P\n\nHalf-yearly:  A = P × (1 + R/200)^(2T)\nQuarterly:    A = P × (1 + R/400)^(4T)\n\nWHY: Each year, interest earns interest too.\n  Year1: P×(1+R/100)\n  Year2: P×(1+R/100)² ...and so on\n\nEx: P=1000, R=10%, T=2yr\n  A=1000×1.1²=1210, CI=210" },
     { title: "CI vs SI Difference", color: "#2f9e44", bg: "#ebfbee",
-      text: "For 2 years:\n  CI - SI = P × (R/100)²\n\nFor 3 years:\n  CI - SI = P × (R/100)² × (3 + R/100)\n\nFor T=1: CI = SI (no difference!)" },
+      text: "For 2 years:\n  CI - SI = P × (R/100)²\n\nFor 3 years:\n  CI - SI = P × (R/100)² × (3 + R/100)\n\nFor T=1: CI = SI (no difference!)\n\nWHY: Diff = interest-on-interest.\n  2yr: extra = R% of 1st yr's interest\n  = P×R/100 × R/100 = P×(R/100)²\n\nEx: P=5000, R=10%, T=2yr\n  CI-SI=5000×(0.1)²=50\n  (SI=1000, CI=1050, diff=50)" },
     { title: "Growth & Depreciation", color: "#e8590c", bg: "#fff4e6",
-      text: "Population growth: P × (1 + R/100)^T\nDepreciation:      P × (1 - R/100)^T\n\nDifferent rates each year:\n  A = P × (1+R1/100) × (1+R2/100) × (1+R3/100)" },
+      text: "Population growth: P × (1 + R/100)^T\nDepreciation:      P × (1 - R/100)^T\n\nDifferent rates each year:\n  A = P × (1+R1/100) × (1+R2/100) × (1+R3/100)\n\nWHY: Growth compounds just like CI.\n  Depreciation = negative growth rate.\n  Different rates: chain-multiply each year.\n\nEx: Pop=10000, R=5%, T=2yr\n  =10000×(1.05)²=10000×1.1025=11025\nEx: Value=50000, depn=20%, T=2yr\n  =50000×(0.8)²=50000×0.64=32000" },
     { title: "Doubling & Effective Rate", color: "#7048e8", bg: "#e5dbff",
-      text: "Rule of 72: T ≈ 72/R years to double\nDoubles in n yrs → 4× in 2n, 8× in 3n\n\nEffective rate (n times/yr):\n  E = (1 + R/(n×100))^n - 1" },
+      text: "Rule of 72: T ≈ 72/R years to double\nDoubles in n yrs → 4× in 2n, 8× in 3n\n\nEffective rate (n times/yr):\n  E = (1 + R/(n×100))^n - 1\n\nWHY: 72 approximates ln(2)×100.\n  If 2× in n yrs, then (2)² = 4× in 2n,\n  (2)³ = 8× in 3n -- powers of 2 stack.\n\nEx: R=12% → doubles in 72/12=6yr\n  4× in 12yr, 8× in 18yr" },
     { title: "Key Power Values", color: "#e03131", bg: "#ffe3e3",
-      text: "(1.05)²=1.1025  (1.05)³=1.157625\n(1.10)²=1.21    (1.10)³=1.331\n(1.15)²=1.3225  (1.20)²=1.44\n(1.20)³=1.728   (1.25)²=1.5625\n(0.90)²=0.81    (0.80)³=0.512" }
+      text: "(1.05)²=1.1025  (1.05)³=1.157625\n(1.10)²=1.21    (1.10)³=1.331\n(1.15)²=1.3225  (1.20)²=1.44\n(1.20)³=1.728   (1.25)²=1.5625\n(0.90)²=0.81    (0.80)³=0.512\n\nWHY: Memorize these to avoid calculation.\n  Quick lookup saves 1-2 min per problem.\n\nEx: P=8000 at 10% for 3yr\n  A=8000×1.331=10648 (instant!)" }
   ],
 
   types: [
@@ -25,15 +25,15 @@ module.exports = {
 
     { num: "3", title: "CI vs SI Diff (2 Years)", color: "#e8590c", bg: "#fff4e6",
       q: "Find the difference between compound interest and simple interest on Rs.5000 at 8% per annum for 2 years.",
-      tree: "LOGIC:\nStep 1: SI = 5000×8×2/100 = 800\n  CI: A = 5000×(1.08)² = 5832\n  CI = 832\nStep 2: Diff = 832-800 = 32\n\nTRICK:\nFor 2 yrs: CI-SI = P×(R/100)²\n= 5000×(0.08)² = 5000×0.0064 = 32\n(interest on 1st year's interest)\n\nAnswer: Diff = Rs.32 ✓" },
+      tree: "LOGIC:\nStep 1: SI = 5000×8×2/100 = 800\n  CI: A = 5000×(1.08)² = 5832\n  CI = 832\nStep 2: Diff = 832-800 = 32\n\n  SI: |████████████████████| 800 (flat)\n  CI: |████████████████████|░░| 832\n  Diff = 32 (interest on Yr1 interest)\n\nTRICK:\nFor 2 yrs: CI-SI = P×(R/100)²\n= 5000×(0.08)² = 5000×0.0064 = 32\n(interest on 1st year's interest)\n\nAnswer: Diff = Rs.32 ✓" },
 
     { num: "4", title: "CI vs SI Diff (3 Years)", color: "#7048e8", bg: "#e5dbff",
       q: "The difference between compound interest and simple interest on a certain sum at 10% per annum for 3 years is Rs.155. Find the sum.",
-      tree: "LOGIC:\nStep 1: CI-SI for 3yr at 10%\n  155 = P×(0.1)²×(3+0.1)\n  155 = P×0.031\nStep 2: P = 155/0.031 = 5000\n\nTRICK:\nFormula: CI-SI = P×(R/100)²×(3+R/100)\nP = Diff / [(R/100)²×(3+R/100)]\n= 155/0.031 = 5000\n\n  Check: SI=1500, CI=1655, Diff=155 ✓\n\nAnswer: P = Rs.5000 ✓" },
+      tree: "LOGIC:\nStep 1: CI-SI for 3yr at 10%\n  155 = P×(0.1)²×(3+0.1)\n  155 = P×0.031\nStep 2: P = 155/0.031 = 5000\n\n  SI: |██████████████████| 1500\n  CI: |██████████████████|░░░| 1655\n  Diff = 155 → solve for P\n\nTRICK:\nFormula: CI-SI = P×(R/100)²×(3+R/100)\nP = Diff / [(R/100)²×(3+R/100)]\n= 155/0.031 = 5000\n\n  Check: SI=1500, CI=1655, Diff=155 ✓\n\nAnswer: P = Rs.5000 ✓" },
 
     { num: "5", title: "Find Principal from CI", color: "#e03131", bg: "#ffe3e3",
       q: "CI on a sum for 2 yrs at 5% is Rs.1025. Find the sum.",
-      tree: "LOGIC:\nStep 1: CI = P×[(1.05)²-1]\n  1025 = P×[1.1025-1]\n  1025 = P×0.1025\nStep 2: P = 1025/0.1025 = 10000\n\nTRICK:\nCI = P×[(1+R/100)^T - 1]\nP = CI / [(1+R/100)^T - 1]\n= 1025/0.1025 = 10000\n\n  Check: 10000×(1.05)²=11025, CI=1025 ✓\n\nAnswer: P = Rs.10000 ✓" },
+      tree: "LOGIC:\nStep 1: CI = P×[(1.05)²-1]\n  1025 = P×[1.1025-1]\n  1025 = P×0.1025\nStep 2: P = 1025/0.1025 = 10000\n\n  P=? ──[5%]──→ Yr1 ──[5%]──→ Yr2\n  CI=1025 → P=10000\n  10000─→10500─→11025 (CI=1025) ✓\n\nTRICK:\nCI = P×[(1+R/100)^T - 1]\nP = CI / [(1+R/100)^T - 1]\n= 1025/0.1025 = 10000\n\nAnswer: P = Rs.10000 ✓" },
 
     { num: "6", title: "Find Rate from CI", color: "#c92a2a", bg: "#fff5f5",
       q: "Rs.12500 becomes Rs.13520 in 2 yrs CI. Find rate.",
@@ -61,15 +61,15 @@ module.exports = {
 
     { num: "12", title: "Installment (EMI with CI)", color: "#e8590c", bg: "#fff4e6",
       q: "Rs.2000 at 10% CI, repaid in 2 equal installments. Find each.",
-      tree: "LOGIC:\nStep 1: X/(1.1) + X/(1.1)² = 2000\n  X/1.1 + X/1.21 = 2000\nStep 2: 1.1X + X = 2420\n  2.1X = 2420 → X = 1152.38\n\nTRICK:\nEMI = P×r×(1+r)^n / [(1+r)^n - 1]\n= 2000×0.1×1.21 / 0.21\n= 242/0.21 = 1152.38\n\nAnswer: Installment = Rs.1152.38 ✓" },
+      tree: "LOGIC:\nStep 1: X/(1.1) + X/(1.1)² = 2000\n  X/1.1 + X/1.21 = 2000\nStep 2: 1.1X + X = 2420\n  2.1X = 2420 → X = 1152.38\n\n  2000 ──→ Pay X/(1.1) + X/(1.1)² = 2000\n  Yr1: pay 1152.38 | Yr2: pay 1152.38\n\nTRICK:\nEMI = P×r×(1+r)^n / [(1+r)^n - 1]\n= 2000×0.1×1.21 / 0.21\n= 242/0.21 = 1152.38\n\nAnswer: Installment = Rs.1152.38 ✓" },
 
     { num: "13", title: "Doubling Time (Rule of 72)", color: "#7048e8", bg: "#e5dbff",
       q: "At what rate does money double in 8 years (CI)?",
-      tree: "LOGIC:\nStep 1: (1+R/100)^8 = 2\n  1+R/100 = 2^(1/8) = 1.0905\nStep 2: R = 9.05%\n\nTRICK:\nRule of 72: R = 72/T\n= 72/8 = 9% (close to exact 9.05%)\n\n  6%→12yr  10%→7.2yr  12%→6yr\n  2× in n yrs → 4× in 2n → 8× in 3n\n\nAnswer: R ≈ 9% ✓" },
+      tree: "LOGIC:\nStep 1: (1+R/100)^8 = 2\n  1+R/100 = 2^(1/8) = 1.0905\nStep 2: R = 9.05%\n\n  |█| → |██| (2× in 8yr)\n  → |████| (4× in 16yr) → |████████| (8× in 24yr)\n\nTRICK:\nRule of 72: R = 72/T\n= 72/8 = 9% (close to exact 9.05%)\n\n  6%→12yr  10%→7.2yr  12%→6yr\n  2× in n yrs → 4× in 2n → 8× in 3n\n\nAnswer: R ≈ 9% ✓" },
 
     { num: "14", title: "Effective Rate of Interest", color: "#0c8599", bg: "#c3fae8",
       q: "What is the effective annual rate of interest if the nominal rate is 10% compounded half-yearly?",
-      tree: "LOGIC:\nStep 1: E = (1+R/(n×100))^n - 1\n  = (1+10/200)² - 1\nStep 2: = (1.05)² - 1 = 0.1025 = 10.25%\n\nTRICK:\nFor half-yearly at R%:\nE = R + (R/2)²/100\n= 10 + 25/100 = 10.25%\nMore frequent → higher effective rate\n\nAnswer: Effective Rate = 10.25% ✓" },
+      tree: "LOGIC:\nStep 1: E = (1+R/(n×100))^n - 1\n  = (1+10/200)² - 1\nStep 2: = (1.05)² - 1 = 0.1025 = 10.25%\n\n  Nominal 10%: H1=5% | H2=5%\n  100─[+5%]→105─[+5%]→110.25\n  Effective = 10.25% > Nominal 10%\n\nTRICK:\nFor half-yearly at R%:\nE = R + (R/2)²/100\n= 10 + 25/100 = 10.25%\nMore frequent → higher effective rate\n\nAnswer: Effective Rate = 10.25% ✓" },
 
     { num: "15", title: "Different Rates Each Year", color: "#862e9c", bg: "#f3d9fa",
       q: "Find the compound interest on Rs.25000 at rates of 4%, 5%, and 6% for 3 successive years.",

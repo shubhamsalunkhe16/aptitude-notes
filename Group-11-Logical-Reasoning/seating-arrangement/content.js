@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Linear Arrangement Basics", color: "#2f9e44", bg: "#ebfbee",
-      text: "N persons in a line = N! arrangements\nPositions: LEFT to RIGHT = 1, 2, 3 ... N\n\nNth from right = position (Total - N + 1)\n\"Immediately left of B\" = position (B - 1)\n\"2nd to the left of B\" = position (B - 2)" },
+      text: "N persons in a line = N! arrangements\nPositions: LEFT to RIGHT = 1, 2, 3 ... N\n\nNth from right = position (Total - N + 1)\n\"Immediately left of B\" = position (B - 1)\n\"2nd to the left of B\" = position (B - 2)\n\nWHY: Each of N slots is filled left to right;\n  N choices for slot 1, N-1 for slot 2, ...\n  Total = N! = N*(N-1)*...*1\n\nEx: 4 persons → 4! = 24 arrangements\n  3rd from right in 6 = 6-3+1 = pos 4" },
     { title: "Circular Arrangement Basics", color: "#1971c2", bg: "#d0ebff",
-      text: "N persons in circle = (N-1)! arrangements\nFix one person, arrange rest relative\n\nFacing CENTER:  Left = CW,  Right = Anti-CW\nFacing OUTSIDE: Left = Anti-CW, Right = CW\n\nOpposite seat = current + N/2 (N must be even)" },
+      text: "N persons in circle = (N-1)! arrangements\nFix one person, arrange rest relative\n\nFacing CENTER:  Left = CW,  Right = Anti-CW\nFacing OUTSIDE: Left = Anti-CW, Right = CW\n\nOpposite seat = current + N/2 (N must be even)\n\nWHY: In a circle, rotations are identical.\n  N! total ÷ N rotations = (N-1)!\n\nEx: 5 persons in circle = 4! = 24 ways\n  Opposite in 8-seat circle: pos 3 → 3+4 = pos 7" },
     { title: "Two-Row & Rectangular", color: "#e8590c", bg: "#fff4e6",
-      text: "Two rows facing each other:\n  Opposite = directly facing in other row\n  Left/Right depends on person's own facing\n\nRectangular table:\n  Number seats clockwise\n  Opposite = across the table" },
+      text: "Two rows facing each other:\n  Opposite = directly facing in other row\n  Left/Right depends on person's own facing\n\nRectangular table:\n  Number seats clockwise\n  Opposite = across the table\n\nWHY: Two-row is like a mirror; left/right\n  flips when facing direction reverses.\n\nEx: Row1 faces S, Row2 faces N, 4 per row\n  R1-pos3 faces R2-pos3 (same column)" },
     { title: "Key Direction Rules", color: "#7048e8", bg: "#e5dbff",
-      text: "FACING CENTER:  Left=Clockwise  Right=Anti-CW\nFACING OUTSIDE: Left=Anti-CW   Right=Clockwise\n  (REVERSED from facing center!)\n\nLINEAR same dir: use normal left/right\nLINEAR two rows: each person's OWN perspective\n\"Xth to left of B\" = start at B, go left X times" }
+      text: "FACING CENTER:  Left=Clockwise  Right=Anti-CW\nFACING OUTSIDE: Left=Anti-CW   Right=Clockwise\n  (REVERSED from facing center!)\n\nLINEAR same dir: use normal left/right\nLINEAR two rows: each person's OWN perspective\n\"Xth to left of B\" = start at B, go left X times\n\nWHY: Looking at center, your left hand\n  traces CW arc. Facing out, it reverses\n  because you turned 180°.\n\nEx: 6 in circle facing center, A at pos 1\n  2nd left of A = 2 CW = pos 3" }
   ],
 
   types: [

@@ -3,15 +3,15 @@ module.exports = {
 
   formulas: [
     { title: "Basic Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "       D\n      / \\\n     /   \\\n    S  ×  T\n\nCover D → S × T\nCover S → D / T\nCover T → D / S\n\nkm/h → m/s : × 5/18\nm/s → km/h : × 18/5" },
+      text: "       D\n      / \\\n     /   \\\n    S  ×  T\n\nCover D → S × T\nCover S → D / T\nCover T → D / S\n\nkm/h → m/s : × 5/18\nm/s → km/h : × 18/5\n\nWHY: 1 km=1000m, 1 hr=3600s\n  1 km/h = 1000/3600 = 5/18 m/s\n\nEx: 72 km/h = 72×5/18 = 20 m/s" },
     { title: "Proportionality", color: "#2f9e44", bg: "#d8f5a2",
-      text: "Same Distance → S ∝ 1/T (inverse)\n  S1/S2 = T2/T1\n  Double speed = Half time\n\nSame Time → S ∝ D (direct)\n  Double speed = Double distance\n\nSame Speed → D ∝ T (direct)" },
+      text: "Same Distance → S ∝ 1/T (inverse)\n  S1/S2 = T2/T1\n  Double speed = Half time\n\nSame Time → S ∝ D (direct)\n  Double speed = Double distance\n\nSame Speed → D ∝ T (direct)\n\nWHY: D=S×T. Fix one variable,\n  the other two relate directly\n  or inversely.\n\nEx: S=3:5, same D → T=5:3" },
     { title: "Average Speed", color: "#e03131", bg: "#ffe3e3",
-      text: "SAME DISTANCE (go & return):\n  Avg = 2×S1×S2 / (S1+S2)\n  Ex: 40 & 60 → 2×40×60/100 = 48\n  NOT 50! (more time at slow speed)\n\nSAME TIME (drive 2hrs each):\n  Avg = (S1+S2) / 2\n  Ex: 40 & 60 → (40+60)/2 = 50\n\n1/3 EACH at 3 speeds:\n  Avg = 3/(1/S1 + 1/S2 + 1/S3)" },
+      text: "SAME DISTANCE (go & return):\n  Avg = 2×S1×S2 / (S1+S2)\n  Ex: 40 & 60 → 2×40×60/100 = 48\n  NOT 50! (more time at slow speed)\n\nSAME TIME (drive 2hrs each):\n  Avg = (S1+S2) / 2\n  Ex: 40 & 60 → (40+60)/2 = 50\n\n1/3 EACH at 3 speeds:\n  Avg = 3/(1/S1 + 1/S2 + 1/S3)\n\nWHY: Avg=Total D / Total T.\n  Same D: T=D/S1+D/S2 → harmonic mean.\n  Same T: D=S1×T+S2×T → arithmetic mean." },
     { title: "Relative Speed", color: "#7048e8", bg: "#e5dbff",
-      text: "Same dir (chase/overtake):\n  ──→  ──→  Rel = S1 - S2\n\nOpposite dir (meeting):\n  ──→  ←──  Rel = S1 + S2\n\nCatch-up time = Gap / Rel speed" },
+      text: "Same dir (chase/overtake):\n  ──→  ──→  Rel = S1 - S2\n\nOpposite dir (meeting):\n  ──→  ←──  Rel = S1 + S2\n\nCatch-up time = Gap / Rel speed\n\nWHY: Objects approach each other;\n  gap closes at combined rate (opp)\n  or difference rate (same dir).\n\nEx: S1=60, S2=40 → Rel_opp=100,\n  Rel_same=20 km/h" },
     { title: "Special Formulas", color: "#0c8599", bg: "#c3fae8",
-      text: "Late/Early → find distance:\n  D = S1 × S2 × T / (S2 - S1)\n\n  T = time difference:\n  Late+Early → T = late + early\n  Both late  → T = late1 - late2\n  Convert minutes to hours first!\n\n  Ex: 40km/h→10min late, 60km/h→10min early\n  T = 10+10 = 20min = 1/3 hr\n  D = 40×60×(1/3) / (60-40) = 40 km" }
+      text: "Late/Early → find distance:\n  D = S1 × S2 × T / (S2 - S1)\n\n  T = time difference:\n  Late+Early → T = late + early\n  Both late  → T = late1 - late2\n  Convert minutes to hours first!\n\nWHY: D/S1 - D/S2 = ΔT\n  D(S2-S1)/(S1×S2) = ΔT → solve for D.\n\nEx: 40km/h→10min late, 60km/h→10min early\n  T = 10+10 = 20min = 1/3 hr\n  D = 40×60×(1/3) / (60-40) = 40 km" }
   ],
 
   types: [

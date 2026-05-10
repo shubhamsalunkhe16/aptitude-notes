@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Basic Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "       D\n      / \\\n     /   \\\n    S  ×  T\n\nCover D → S × T\nCover S → D / T\nCover T → D / S\n\nkm/h → m/s : × 5/18\nm/s → km/h : × 18/5" },
+      text: "       D\n      / \\\n     /   \\\n    S  ×  T\n\nCover D → S × T\nCover S → D / T\nCover T → D / S\n\nkm/h → m/s : × 5/18\nm/s → km/h : × 18/5\n\nWHY: 1 km/h = 1000m/3600s = 5/18 m/s\n\nEx: 54 km/h = 54×5/18 = 15 m/s" },
     { title: "Distance to Cover", color: "#2f9e44", bg: "#d8f5a2",
-      text: "Train → Pole/Person:  L\nTrain → Platform:     L + P\nTrain → Another Train: L1 + L2\nTrain → Tunnel Exit:  L + T\nTrain → Tunnel Inside: T - L" },
+      text: "Train → Pole/Person:  L\nTrain → Platform:     L + P\nTrain → Another Train: L1 + L2\nTrain → Tunnel Exit:  L + T\nTrain → Tunnel Inside: T - L\n\nWHY: Train's nose travels until its\n  tail clears the object. So add both\n  lengths. Pole/person = zero length.\n\nEx: Train=200m, Platform=300m\n  D = 200+300 = 500m" },
     { title: "Relative Speed", color: "#e03131", bg: "#ffe3e3",
-      text: "Same direction (overtaking):\n  Relative = S1 - S2\n  ──→  ──→\n\nOpposite direction (crossing):\n  Relative = S1 + S2\n  ──→  ←──" },
+      text: "Same direction (overtaking):\n  Relative = S1 - S2\n  ──→  ──→\n\nOpposite direction (crossing):\n  Relative = S1 + S2\n  ──→  ←──\n\nWHY: Gap between trains closes at\n  combined rate (opp) or difference\n  rate (same dir).\n\nEx: 60 & 40 km/h → Opp=100,\n  Same=20 km/h" },
     { title: "Shortcut Formulas", color: "#7048e8", bg: "#e5dbff",
-      text: "Speed change → inverse time ratio\nS1:S2 = a:b → T1:T2 = b:a\n\nEqual trains cross pole T1,T2:\n  Opp: 2×T1×T2/(T1+T2)\n  Same: 2×T1×T2/(T1-T2)\n\nLate/Early → D=S1×S2×ΔT/(S2-S1)" }
+      text: "Speed change → inverse time ratio\nS1:S2 = a:b → T1:T2 = b:a\n\nEqual trains cross pole T1,T2:\n  Opp: 2×T1×T2/(T1+T2)\n  Same: 2×T1×T2/(T1-T2)\n\nLate/Early → D=S1×S2×ΔT/(S2-S1)\n\nWHY (equal trains): L=S1×T1=S2×T2,\n  D=2L. Opp: T=2L/(S1+S2). Substitute\n  S=L/T to get harmonic mean formula.\n\nEx: T1=20s, T2=30s → Opp=\n  2×20×30/50 = 24s" }
   ],
 
   types: [
@@ -75,7 +75,7 @@ module.exports = {
 
     { num: "16", title: "Speed Change → Time Change", color: "#e03131", bg: "#ffe3e3",
       q: "A train crosses a pole in 20 seconds at 54 km/h. How long will it take to cross the pole if the speed is increased to 72 km/h?",
-      tree: "LOGIC:\nStep 1: L=S×T→same L, so S1×T1=S2×T2\n  54×20 = 72×T2 → T2 = 1080/72 = 15s\n\nTRICK (inverse ratio):\nSame dist → Speed:Time are INVERSE\nS=54:72=3:4 → T=4:3\nNew T = 20×(3/4) = 15 sec\n\nSpeed ↑ → Time ↓ (always inverse!)\n\nAnswer: 15 sec ✓" },
+      tree: "LOGIC:\nStep 1: L=S×T→same L, so S1×T1=S2×T2\n  54×20 = 72×T2 → T2 = 1080/72 = 15s\n\nTRICK (inverse ratio):\nSame dist → Speed:Time are INVERSE\nS=54:72=3:4 → T=4:3\nNew T = 20×(3/4) = 15 sec\n\n  ┌──────── L m ────────┐\n  │      Train          │───→\n  └─────────────────────┘\n  Case1: 54 km/h → 20s  |pole\n  Case2: 72 km/h → 15s  |pole\n\nSpeed ↑ → Time ↓ (always inverse!)\n\nAnswer: 15 sec ✓" },
 
     { num: "17", title: "Man in Train Sees Another", color: "#2f9e44", bg: "#ebfbee",
       q: "A man sitting in a train running at 50 km/h sees a goods train running in the opposite direction at 40 km/h pass him in 9 seconds. Find the length of the goods train.",

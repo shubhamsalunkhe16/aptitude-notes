@@ -3,15 +3,15 @@ module.exports = {
 
   formulas: [
     { title: "Core SI Formula", color: "#2f9e44", bg: "#ebfbee",
-      text: "SI = (P x R x T) / 100\n\nP = Principal (original sum)\nR = Rate of interest per annum (%)\nT = Time (in years)\nSI = Simple Interest" },
+      text: "SI = (P x R x T) / 100\n\nP = Principal (original sum)\nR = Rate of interest per annum (%)\nT = Time (in years)\nSI = Simple Interest\n\nWHY: R% means R per 100 per year.\n  Interest for 1yr = P×R/100.\n  For T years (simple) = P×R×T/100.\n\nEx: P=1000, R=10%, T=3yr\n  SI=1000×10×3/100=300" },
     { title: "Amount Formula", color: "#1971c2", bg: "#d0ebff",
-      text: "Amount = Principal + Simple Interest\nA = P + SI\nA = P + (P x R x T) / 100\nA = P (1 + R x T / 100)" },
+      text: "Amount = Principal + Simple Interest\nA = P + SI\nA = P + (P x R x T) / 100\nA = P (1 + R x T / 100)\n\nWHY: Amount = what you get back total.\n  = original sum + interest earned.\n  Factor out P to get multiplier form.\n\nEx: P=2000, R=5%, T=4yr\n  SI=400, A=2000+400=2400\n  Or A=2000×(1+20/100)=2000×1.2=2400" },
     { title: "Find Unknown (P, R, T)", color: "#e8590c", bg: "#fff4e6",
-      text: "P = (100 x SI) / (R x T)\nR = (100 x SI) / (P x T)\nT = (100 x SI) / (P x R)" },
+      text: "P = (100 x SI) / (R x T)\nR = (100 x SI) / (P x T)\nT = (100 x SI) / (P x R)\n\nWHY: All derived from SI=PRT/100.\n  Rearrange to isolate the unknown.\n\nEx: SI=600, R=10%, T=3yr\n  P=100×600/(10×3)=60000/30=2000\nEx: SI=240, P=1200, T=4yr\n  R=100×240/(1200×4)=5%" },
     { title: "Multiplier / Doubling Formula", color: "#7048e8", bg: "#e5dbff",
-      text: "Sum becomes N times in T years:\n  (N - 1) x 100 = R x T\n\nDoubles:  R x T = 100\nTriples:  R x T = 200\nN times:  R x T = (N-1) x 100\n\nTime to double = 100/R\nTime to N times = (N-1) x 100/R" },
+      text: "Sum becomes N times in T years:\n  (N - 1) x 100 = R x T\n\nDoubles:  R x T = 100\nTriples:  R x T = 200\nN times:  R x T = (N-1) x 100\n\nTime to double = 100/R\nTime to N times = (N-1) x 100/R\n\nWHY: N times means A=NP, so SI=(N-1)P.\n  (N-1)P = P×R×T/100 → R×T=(N-1)×100.\n\nEx: R=10%, double → T=100/10=10yr\n  Triple → T=200/10=20yr" },
     { title: "Splitting Sum Formula", color: "#e03131", bg: "#ffe3e3",
-      text: "Total S split into Part1 at R1% for T1\nand Part2 at R2% for T2 (equal SI):\n\nPart1/Part2 = (R2 x T2)/(R1 x T1)\n\nSame time: Part1/Part2 = R2/R1\nSame rate: Part1/Part2 = T2/T1" }
+      text: "Total S split into Part1 at R1% for T1\nand Part2 at R2% for T2 (equal SI):\n\nPart1/Part2 = (R2 x T2)/(R1 x T1)\n\nSame time: Part1/Part2 = R2/R1\nSame rate: Part1/Part2 = T2/T1\n\nWHY: Equal SI means P1×R1×T1=P2×R2×T2.\n  Cross-divide to get the ratio.\n\nEx: S=4000, R1=5%, R2=9%, T=1yr\n  Ratio=9:5, P1=4000×9/14=2571\n  P2=4000×5/14=1429" }
   ],
 
   types: [

@@ -4,22 +4,22 @@ module.exports = {
   formulas: [
     { title: "Basic Probability",
       color: "#2f9e44", bg: "#ebfbee",
-      text: "P(E) = Favorable outcomes / Total outcomes\n\n0 <= P(E) <= 1\nP(certain) = 1, P(impossible) = 0\nSample space S = set of all possible outcomes" },
+      text: "P(E) = Favorable outcomes / Total outcomes\n\n0 <= P(E) <= 1\nP(certain) = 1, P(impossible) = 0\nSample space S = set of all possible outcomes\n\nWHY: Probability = how many ways event\n  can happen out of all equally likely ways.\n\nEx: 1 die, P(even)=3/6=1/2 (2,4,6 of 6)" },
     { title: "Addition Rule (OR)",
       color: "#1971c2", bg: "#d0ebff",
-      text: "P(A or B) = P(A) + P(B) - P(A and B)\nP(A ∪ B)  = P(A) + P(B) - P(A ∩ B)\n\nMutually Exclusive: P(A ∩ B) = 0\n  -> P(A ∪ B) = P(A) + P(B)" },
+      text: "P(A or B) = P(A) + P(B) - P(A and B)\nP(A ∪ B)  = P(A) + P(B) - P(A ∩ B)\n\nMutually Exclusive: P(A ∩ B) = 0\n  -> P(A ∪ B) = P(A) + P(B)\n\nWHY: Adding P(A)+P(B) double-counts the\n  overlap, so subtract P(A∩B) once.\n\nEx: P(K)=4/52, P(H)=13/52, P(K∩H)=1/52\n  P(K or H) = 4+13-1 = 16/52 = 4/13" },
     { title: "Multiplication Rule (AND)",
       color: "#e8590c", bg: "#fff4e6",
-      text: "Independent: P(A ∩ B) = P(A) x P(B)\nDependent:   P(A ∩ B) = P(A) x P(B|A)\n\nIndependent = one event doesn't affect other\nDependent = outcome changes next probability" },
+      text: "Independent: P(A ∩ B) = P(A) x P(B)\nDependent:   P(A ∩ B) = P(A) x P(B|A)\n\nIndependent = one event doesn't affect other\nDependent = outcome changes next probability\n\nWHY: For both A AND B to happen, A must\n  happen first, then B given A happened.\n\nEx: 2 coins, P(HH)=1/2 × 1/2 = 1/4" },
     { title: "Complement & Conditional",
       color: "#7048e8", bg: "#e5dbff",
-      text: "P(not A) = 1 - P(A)\nP(at least 1) = 1 - P(none)\n\nConditional: P(A|B) = P(A ∩ B) / P(B)\nBayes: P(A|B) = P(B|A).P(A) / P(B)" },
+      text: "P(not A) = 1 - P(A)\nP(at least 1) = 1 - P(none)\n\nConditional: P(A|B) = P(A ∩ B) / P(B)\nBayes: P(A|B) = P(B|A).P(A) / P(B)\n\nWHY: All outcomes sum to 1, so\n  P(not A) = 1 - P(A). Complement\n  avoids listing many cases.\n\nEx: P(at least 1H in 3 coins)\n  = 1 - P(TTT) = 1 - 1/8 = 7/8" },
     { title: "Sample Space Quick Reference",
       color: "#e03131", bg: "#ffe3e3",
-      text: "1 Coin = 2    n Coins = 2^n\n1 Die  = 6    2 Dice  = 36\n1 Deck = 52 cards (4 suits x 13)\n\nnCr heads in n tosses: P = nCr / 2^n\n2 dice sum=7: 6 ways, sum=2 or 12: 1 way" },
+      text: "1 Coin = 2    n Coins = 2^n\n1 Die  = 6    2 Dice  = 36\n1 Deck = 52 cards (4 suits x 13)\n\nnCr heads in n tosses: P = nCr / 2^n\n2 dice sum=7: 6 ways, sum=2 or 12: 1 way\n\nWHY: Each coin has 2 outcomes, each die 6.\n  n coins = 2×2×...n times = 2^n.\n\nEx: 3 coins → 2^3=8 total outcomes" },
     { title: "Odds & Expected Value",
       color: "#0c8599", bg: "#c3fae8",
-      text: "Odds in favor  = P(E) : P(E') = a : b\nOdds against   = P(E') : P(E) = b : a\nIf odds = a:b -> P(E) = a/(a+b)\n\nExpected Value E(X) = Sum[x_i . P(x_i)]" }
+      text: "Odds in favor  = P(E) : P(E') = a : b\nOdds against   = P(E') : P(E) = b : a\nIf odds = a:b -> P(E) = a/(a+b)\n\nExpected Value E(X) = Sum[x_i . P(x_i)]\n\nWHY: Odds compare success to failure,\n  not success to total. P converts via a/(a+b).\n\nEx: Odds 3:5 → P = 3/(3+5) = 3/8" }
   ],
 
   types: [
@@ -31,7 +31,7 @@ module.exports = {
     { num: "2", title: "Coin Toss (n Coins)",
       color: "#1971c2", bg: "#d0ebff",
       q: "If 3 coins are tossed simultaneously, what is the probability of getting exactly 2 heads?",
-      tree: "LOGIC:\nStep 1: Total = 2³ = 8\n  2H cases: HHT, HTH, THH = 3\nStep 2: P = 3/8\n\nTRICK:\nP(r heads in n tosses) = nCr / 2^n\n= 3C2/8 = 3/8\n(use nCr for any coin problem)\n\nAnswer: P(exactly 2H) = 3/8 ✓" },
+      tree: "LOGIC:\nStep 1: Total = 2³ = 8\n  2H cases: HHT, HTH, THH = 3\nStep 2: P = 3/8\n\nTRICK:\nP(r heads in n tosses) = nCr / 2^n\n= 3C2/8 = 3/8\n(use nCr for any coin problem)\n\n        Coin1  Coin2  Coin3\n  HHT:   H      H      T  ✓\n  HTH:   H      T      H  ✓\n  THH:   T      H      H  ✓\n  3 of 8 outcomes → 3/8\n\nAnswer: P(exactly 2H) = 3/8 ✓" },
 
     { num: "3", title: "Dice (Sum of 2 Dice)",
       color: "#e8590c", bg: "#fff4e6",
@@ -51,17 +51,17 @@ module.exports = {
     { num: "6", title: "P(A and B) Independent Events",
       color: "#c92a2a", bg: "#fff5f5",
       q: "A coin is tossed and a die is rolled simultaneously. What is the probability of getting a Head on the coin and a 6 on the die?",
-      tree: "LOGIC:\nStep 1: Independent → multiply\n  P(H) = 1/2, P(6) = 1/6\nStep 2: P(H∩6) = 1/2 × 1/6 = 1/12\n\nTRICK:\nIndependent events → just multiply!\nP(A and B) = P(A) × P(B)\n= 1/2 × 1/6 = 1/12\n\nAnswer: P(Head and 6) = 1/12 ✓" },
+      tree: "LOGIC:\nStep 1: Independent → multiply\n  P(H) = 1/2, P(6) = 1/6\nStep 2: P(H∩6) = 1/2 × 1/6 = 1/12\n\nTRICK:\nIndependent events → just multiply!\nP(A and B) = P(A) × P(B)\n= 1/2 × 1/6 = 1/12\n\n  Coin[H,T]  ×  Die[1-6]\n   1/2       ×   1/6\n   = 1/12 (total = 2×6=12)\n\nAnswer: P(Head and 6) = 1/12 ✓" },
 
     { num: "7", title: "Complement P(not A)",
       color: "#0c8599", bg: "#c3fae8",
       q: "A coin is tossed 3 times. What is the probability of getting at least one head?",
-      tree: "LOGIC:\nStep 1: P(all tails) = (1/2)³ = 1/8\nStep 2: P(at least 1H) = 1-1/8 = 7/8\n\nTRICK:\nAt least 1 = 1 - P(none)\nP(none) = (1/2)^n for coins\n= 1 - (1/2)³ = 7/8\n(never calculate all cases directly!)\n\nAnswer: P(at least 1H) = 7/8 ✓" },
+      tree: "LOGIC:\nStep 1: P(all tails) = (1/2)³ = 1/8\nStep 2: P(at least 1H) = 1-1/8 = 7/8\n\nTRICK:\nAt least 1 = 1 - P(none)\nP(none) = (1/2)^n for coins\n= 1 - (1/2)³ = 7/8\n(never calculate all cases directly!)\n\n  |▓▓▓▓▓▓▓▓▓▓▓▓▓▓|░░|\n  |  at least 1H  |TTT|\n  |    7/8        |1/8|\n\nAnswer: P(at least 1H) = 7/8 ✓" },
 
     { num: "8", title: "Conditional Probability P(A|B)",
       color: "#862e9c", bg: "#f3d9fa",
       q: "Two dice are thrown. Given that the sum is greater than 7, what is the probability that both dice show a number greater than or equal to 5?",
-      tree: "LOGIC:\nStep 1: B=sum>7 → 15 outcomes of 36\n  A∩B = both>=5 AND sum>7\n  = (5,5)(5,6)(6,5)(6,6) = 4\nStep 2: P(A|B) = 4/15\n\nTRICK:\nP(A|B) = P(A∩B)/P(B)\nNew sample space = given condition\nJust count within reduced space\n= 4/15\n\nAnswer: P(both>=5 | sum>7) = 4/15 ✓" },
+      tree: "LOGIC:\nStep 1: B=sum>7 → 15 outcomes of 36\n  A∩B = both>=5 AND sum>7\n  = (5,5)(5,6)(6,5)(6,6) = 4\nStep 2: P(A|B) = 4/15\n\nTRICK:\nP(A|B) = P(A∩B)/P(B)\nNew sample space = given condition\nJust count within reduced space\n= 4/15\n\n  Given: sum>7 (15 outcomes)\n  ┌──────────────────────┐\n  │ (5,5)(5,6)(6,5)(6,6) │ ← both>=5\n  │ + 11 other combos    │\n  └──────────────────────┘\n  P = 4/15\n\nAnswer: P(both>=5 | sum>7) = 4/15 ✓" },
 
     { num: "9", title: "Balls Without Replacement",
       color: "#f08c00", bg: "#fff3bf",
@@ -76,7 +76,7 @@ module.exports = {
     { num: "11", title: "All Same (Consecutive Events)",
       color: "#1971c2", bg: "#d0ebff",
       q: "A coin is tossed 5 times. What is the probability that all tosses show the same face?",
-      tree: "LOGIC:\nStep 1: All H = (1/2)^5 = 1/32\n  All T = (1/2)^5 = 1/32\nStep 2: P = 1/32+1/32 = 2/32 = 1/16\n\nTRICK:\nP(all same) = 2/2^n = 1/2^(n-1)\n= 1/2^4 = 1/16\nFor dice: 6/6^k = 1/6^(k-1)\n\nAnswer: P(all same) = 1/16 ✓" },
+      tree: "LOGIC:\nStep 1: All H = (1/2)^5 = 1/32\n  All T = (1/2)^5 = 1/32\nStep 2: P = 1/32+1/32 = 2/32 = 1/16\n\nTRICK:\nP(all same) = 2/2^n = 1/2^(n-1)\n= 1/2^4 = 1/16\nFor dice: 6/6^k = 1/6^(k-1)\n\n  HHHHH → 1/32\n       OR (+)\n  TTTTT → 1/32\n  Total = 2/32 = 1/16\n\nAnswer: P(all same) = 1/16 ✓" },
 
     { num: "12", title: "Odds in Favor / Against",
       color: "#e8590c", bg: "#fff4e6",
@@ -86,12 +86,12 @@ module.exports = {
     { num: "13", title: "Expected Value",
       color: "#7048e8", bg: "#e5dbff",
       q: "A game costs Rs.10 to play. You roll a die: if you get a 6 you win Rs.50, otherwise you win nothing. Is it worth playing based on expected value?",
-      tree: "LOGIC:\nStep 1: E(X) = 50×(1/6) + 0×(5/6)\n  = 50/6 = Rs.8.33\nStep 2: Net = 8.33-10 = -1.67 (loss)\n\nTRICK:\nE(X) = Sum[value × probability]\nIf E(X) < cost → don't play!\n8.33 < 10 → expected loss\n\nAnswer: Net = -Rs.1.67 (loss) ✓" },
+      tree: "LOGIC:\nStep 1: E(X) = 50×(1/6) + 0×(5/6)\n  = 50/6 = Rs.8.33\nStep 2: Net = 8.33-10 = -1.67 (loss)\n\nTRICK:\nE(X) = Sum[value × probability]\nIf E(X) < cost → don't play!\n8.33 < 10 → expected loss\n\n  Outcome | Value | Prob\n  ────────┼───────┼──────\n  Roll 6  |  50   | 1/6\n  Others  |   0   | 5/6\n  E(X) = 8.33 < 10 cost\n\nAnswer: Net = -Rs.1.67 (loss) ✓" },
 
     { num: "14", title: "Birthday Problem",
       color: "#e03131", bg: "#ffe3e3",
       q: "In a group of 23 people, what is the probability that at least 2 people share the same birthday?",
-      tree: "LOGIC:\nStep 1: P(all diff) for 23 people\n  = 365/365 × 364/365 × ... × 343/365\n  = 0.493\nStep 2: P(shared) = 1-0.493 = 0.507\n\nTRICK:\nBirthday Paradox: only 23 for >50%!\nn:  23→50.7%  30→70.6%  50→97%\nP(all diff) = 365!/(365^n × (365-n)!)\n\nAnswer: P(shared bday) = 50.7% ✓" },
+      tree: "LOGIC:\nStep 1: P(all diff) for 23 people\n  = 365/365 × 364/365 × ... × 343/365\n  = 0.493\nStep 2: P(shared) = 1-0.493 = 0.507\n\nTRICK:\nBirthday Paradox: only 23 for >50%!\nn:  23→50.7%  30→70.6%  50→97%\nP(all diff) = 365!/(365^n × (365-n)!)\n\n  n  | P(shared)\n  ───┼──────────\n  23 |  50.7%\n  30 |  70.6%\n  50 |  97.0%\n  70 |  99.9%\n\nAnswer: P(shared bday) = 50.7% ✓" },
 
     { num: "15", title: "Geometric Probability (Area)",
       color: "#c92a2a", bg: "#fff5f5",

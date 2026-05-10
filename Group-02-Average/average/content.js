@@ -3,17 +3,17 @@ module.exports = {
 
   formulas: [
     { title: "Basic Average Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "Average = Sum / n\nSum = Average × n\n\nIf each value +x → New Avg = Old Avg + x\nIf each value -x → New Avg = Old Avg - x\nIf each value ×k → New Avg = Old Avg × k\nIf each value /k → New Avg = Old Avg / k" },
+      text: "Average = Sum / n\nSum = Average × n\n\nIf each value +x → New Avg = Old Avg + x\nIf each value -x → New Avg = Old Avg - x\nIf each value ×k → New Avg = Old Avg × k\nIf each value /k → New Avg = Old Avg / k\n\nWHY: Average distributes total equally among all.\nIf you level out unequal items, average is that level.\n\nEx: 10,20,30 → Sum=60, Count=3\n  Avg = 60/3 = 20\n  Each +5 → New Avg = 20+5 = 25" },
     { title: "Consecutive / Series Formulas", color: "#2f9e44", bg: "#ebfbee",
-      text: "First n natural nos: Avg = (n+1)/2\nFirst n even nos:    Avg = n+1\nFirst n odd nos:     Avg = n\n\nAny AP: Avg = (First + Last) / 2\nSquares of 1..n: Avg = (n+1)(2n+1)/6" },
+      text: "First n natural nos: Avg = (n+1)/2\nFirst n even nos:    Avg = n+1\nFirst n odd nos:     Avg = n\n\nAny AP: Avg = (First + Last) / 2\nSquares of 1..n: Avg = (n+1)(2n+1)/6\n\nWHY: In any AP, values are symmetric around\nthe middle, so Avg = midpoint = (First+Last)/2.\n\nEx: First 5 natural: Avg=(5+1)/2=3\n  Check: (1+2+3+4+5)/5 = 15/5 = 3 ✓" },
     { title: "Weighted Avg & Combined Groups", color: "#e8590c", bg: "#fff4e6",
-      text: "Weighted Avg = Σwᵢxᵢ / Σwᵢ\n\nCombined Avg of two groups:\n  = (n₁×A₁ + n₂×A₂) / (n₁ + n₂)\n\nAlligation: n₁/n₂ = (A₂-Avg)/(Avg-A₁)" },
+      text: "Weighted Avg = Σwᵢxᵢ / Σwᵢ\n\nCombined Avg of two groups:\n  = (n₁×A₁ + n₂×A₂) / (n₁ + n₂)\n\nAlligation: n₁/n₂ = (A₂-Avg)/(Avg-A₁)\n\nWHY: Larger groups pull average towards them.\nWeighted avg gives more influence to larger groups.\n\nEx: 3 items avg 10, 2 items avg 20\n  = (3×10+2×20)/(3+2) = 70/5 = 14" },
     { title: "Add / Remove / Replace Member", color: "#7048e8", bg: "#e5dbff",
-      text: "ADDED: New = NewAvg + n×(NewAvg-OldAvg)\n  (n = original count)\n\nREMOVED: Removed = OldAvg - n×(NewAvg-OldAvg)\n  (n = new count after removal)\n\nREPLACED: New-Old = n×(NewAvg-OldAvg)\n  (n = total count, unchanged)" },
+      text: "ADDED: New = NewAvg + n×(NewAvg-OldAvg)\n  (n = original count)\n\nREMOVED: Removed = OldAvg - n×(NewAvg-OldAvg)\n  (n = new count after removal)\n\nREPLACED: New-Old = n×(NewAvg-OldAvg)\n  (n = total count, unchanged)\n\nWHY: New member must cover its own share\nPLUS compensate the avg rise for all old members.\n\nEx: 4 people avg 25, new joins, avg→27\n  New = 27 + 4×(27-25) = 27+8 = 35" },
     { title: "Average Speed Formulas", color: "#e03131", bg: "#ffe3e3",
-      text: "Same distance: Avg = 2ab/(a+b)\n  (Harmonic Mean — always < simple avg)\n\nSame time: Avg = (a+b)/2\n  (Arithmetic Mean = simple average)\n\nGeneral: Total Distance / Total Time\nNEVER just average the speeds!" },
+      text: "Same distance: Avg = 2ab/(a+b)\n  (Harmonic Mean — always < simple avg)\n\nSame time: Avg = (a+b)/2\n  (Arithmetic Mean = simple average)\n\nGeneral: Total Distance / Total Time\nNEVER just average the speeds!\n\nWHY: Same distance → more time at slow speed,\nso avg is pulled towards the slower speed.\n\nEx: 60 km at 30 km/h, 60 km at 60 km/h\n  Avg = 2×30×60/90 = 3600/90 = 40 (NOT 45!)" },
     { title: "Median & Mode", color: "#0c8599", bg: "#c3fae8",
-      text: "Mean: Sum/Count (affected by outliers)\nMedian: Middle value (robust to outliers)\n  Even count → avg of two middle values\nMode: Most frequent value\n\nEmpirical: Mode ≈ 3×Median - 2×Mean" }
+      text: "Mean: Sum/Count (affected by outliers)\nMedian: Middle value (robust to outliers)\n  Even count → avg of two middle values\nMode: Most frequent value\n\nEmpirical: Mode ≈ 3×Median - 2×Mean\n\nWHY: Mean uses all values (outlier-sensitive).\nMedian ignores magnitude. Mode = frequency peak.\n\nEx: 2,3,3,7,100 → Mean=23, Median=3, Mode=3\n  Outlier 100 skews mean but not median/mode." }
   ],
 
   types: [

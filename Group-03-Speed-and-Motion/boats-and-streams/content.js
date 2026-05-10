@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Core Definitions", color: "#1971c2", bg: "#d0ebff",
-      text: "Boat speed in still water = B\nStream (current) speed = S\n\nDownstream speed = B + S  (current helps)\nUpstream speed   = B - S  (current opposes)\n\n──→ Boat ──→ Stream = DOWNSTREAM\n──→ Boat ←── Stream = UPSTREAM" },
+      text: "Boat speed in still water = B\nStream (current) speed = S\n\nDownstream speed = B + S  (current helps)\nUpstream speed   = B - S  (current opposes)\n\n──→ Boat ──→ Stream = DOWNSTREAM\n──→ Boat ←── Stream = UPSTREAM\n\nWHY: Current adds to boat's speed\n  going with it, subtracts against.\n\nEx: B=10, S=3 → Down=13, Up=7" },
     { title: "Deriving B & S", color: "#2f9e44", bg: "#ebfbee",
-      text: "If Downstream = D, Upstream = U\n\nBoat speed  B = (D + U) / 2\nStream speed S = (D - U) / 2\n\nWHY: D=B+S, U=B-S\n  D+U=2B → B=(D+U)/2\n  D-U=2S → S=(D-U)/2" },
+      text: "If Downstream = D, Upstream = U\n\nBoat speed  B = (D + U) / 2\nStream speed S = (D - U) / 2\n\nWHY: D=B+S, U=B-S\n  D+U=2B → B=(D+U)/2\n  D-U=2S → S=(D-U)/2\n\nEx: Down=14, Up=8 →\n  B=(14+8)/2=11, S=(14-8)/2=3" },
     { title: "Time & Distance", color: "#e8590c", bg: "#fff4e6",
-      text: "Time downstream = D / (B+S)\nTime upstream   = D / (B-S)\n\nRound trip = D/(B+S) + D/(B-S)\n           = 2DB / (B²-S²)\n\nIf same dist: T_up/T_down = (B+S)/(B-S)" },
+      text: "Time downstream = D / (B+S)\nTime upstream   = D / (B-S)\n\nRound trip = D/(B+S) + D/(B-S)\n           = 2DB / (B²-S²)\n\nIf same dist: T_up/T_down = (B+S)/(B-S)\n\nWHY: T=D/Speed. Round trip combines\n  two fractions with common denominator\n  (B+S)(B-S) = B²-S².\n\nEx: B=8, S=2, D=30 → T=30/10+30/6\n  = 3+5 = 8 hrs" },
     { title: "Shortcut Formulas", color: "#7048e8", bg: "#e5dbff",
-      text: "Avg speed (round trip):\n  = 2×Down×Up / (Down+Up)\n  = (B²-S²) / B\n\nT_up - T_down = 2DS / (B²-S²)\n→ D = T×(B²-S²) / (2S)\n\nBoat speed doubles:\n  T = D/(2B+S) + D/(2B-S)" }
+      text: "Avg speed (round trip):\n  = 2×Down×Up / (Down+Up)\n  = (B²-S²) / B\n\nT_up - T_down = 2DS / (B²-S²)\n→ D = T×(B²-S²) / (2S)\n\nBoat speed doubles:\n  T = D/(2B+S) + D/(2B-S)\n\nWHY: Avg=2D/total T. Simplify\n  2D/(D/(B+S)+D/(B-S)) = (B²-S²)/B.\n  Always < B since stream slows avg.\n\nEx: B=10, S=4 → Avg=(100-16)/10\n  = 8.4 km/h" }
   ],
 
   types: [
@@ -39,11 +39,11 @@ module.exports = {
 
     { num: "7", title: "Average Speed for Round Trip", color: "#f08c00", bg: "#fff3bf",
       q: "A boat travels at 12 km/h in still water and the stream speed is 4 km/h. Find the average speed of the boat for a round trip.",
-      tree: "LOGIC:\nStep 1: Down=16, Up=8. Let D=distance\n  Total=2D, Time=D/16+D/8=3D/16\nStep 2: Avg=2D/(3D/16)=32/3=10.67\n\nTRICK (Harmonic Mean):\nAvg = 2×Down×Up/(Down+Up)\n= 2×16×8/24 = 256/24 = 10.67\nALT: (B²-S²)/B = (144-16)/12 = 10.67\n\nNOTE: Avg < B always!\n\n  Down=16, Up=8 → Avg=10.67\n\nAnswer: Avg speed = 10.67 km/h ✓" },
+      tree: "LOGIC:\nStep 1: Down=16, Up=8. Let D=distance\n  Total=2D, Time=D/16+D/8=3D/16\nStep 2: Avg=2D/(3D/16)=32/3=10.67\n\nTRICK (Harmonic Mean):\nAvg = 2×Down×Up/(Down+Up)\n= 2×16×8/24 = 256/24 = 10.67\nALT: (B²-S²)/B = (144-16)/12 = 10.67\n\n  START ══════ D ══════ PLACE\n    GO:   B+S=16 ──→  T1=D/16\n    BACK: B-S=8  ←──  T2=D/8\n\nNOTE: Avg < B always! (stream slows)\n\nAnswer: Avg speed = 10.67 km/h ✓" },
 
     { num: "8", title: "Rows X km Up in Same Time as Y km Down — Find B:S", color: "#e03131", bg: "#ffe3e3",
       q: "A man can row 6 km upstream in the same time as he rows 10 km downstream. If the speed of the stream is 2 km/h, find the speed of the man in still water.",
-      tree: "LOGIC:\nStep 1: Same time → D ∝ Speed\n  6:10 = (B-S):(B+S)\n  6(B+S)=10(B-S) → 16S=4B → B=4S\nStep 2: S=2 → B=8 km/h\n  Verify: Up=6, Down=10, 6/6=10/10=1h ✓\n\nTRICK (ratio):\nUp:Down dist = (B-S):(B+S)\n6:10 = 3:5. So B-S=3k, B+S=5k\nB=4k, S=k. Given S=2→k=2→B=8\n\nAnswer: Boat speed = 8 km/h ✓" },
+      tree: "LOGIC:\nStep 1: Same time → D ∝ Speed\n  6:10 = (B-S):(B+S)\n  6(B+S)=10(B-S) → 16S=4B → B=4S\nStep 2: S=2 → B=8 km/h\n  Verify: Up=6, Down=10, 6/6=10/10=1h ✓\n\nTRICK (ratio):\nUp:Down dist = (B-S):(B+S)\n6:10 = 3:5. So B-S=3k, B+S=5k\nB=4k, S=k. Given S=2→k=2→B=8\n\n  ──→ 10 km (downstream) ──→\n  ←── 6 km  (upstream)   ←──\n       Same time T\n\nAnswer: Boat speed = 8 km/h ✓" },
 
     { num: "9", title: "Boat Speed Doubles — New Round Trip", color: "#c92a2a", bg: "#fff5f5",
       q: "A boat travels at 5 km/h in still water and the stream speed is 1 km/h. If the boat speed doubles, how long does it take to travel 24 km downstream and return?",
@@ -51,7 +51,7 @@ module.exports = {
 
     { num: "10", title: "Find Stream Speed Given B and Two Times", color: "#1971c2", bg: "#d0ebff",
       q: "A boat travels at 15 km/h in still water. It takes 4 hours to go downstream and 6 hours to return the same distance. Find the speed of the stream.",
-      tree: "LOGIC:\nStep 1: Same dist → (15+S)×4=(15-S)×6\n  60+4S=90-6S → 10S=30 → S=3\nStep 2: Verify: 18×4=72, 12×6=72 ✓\n\nTRICK (ratio method):\nSame dist → T ∝ 1/Speed\nT1:T2=4:6=2:3 → Speed ratio=3:2\nDown:Up=3:2 → (B+S):(B-S)=3:2\n3(B-S)=2(B+S) → B=5S → S=15/5=3\n\nAnswer: Stream speed = 3 km/h ✓" },
+      tree: "LOGIC:\nStep 1: Same dist → (15+S)×4=(15-S)×6\n  60+4S=90-6S → 10S=30 → S=3\nStep 2: Verify: 18×4=72, 12×6=72 ✓\n\nTRICK (ratio method):\nSame dist → T ∝ 1/Speed\nT1:T2=4:6=2:3 → Speed ratio=3:2\nDown:Up=3:2 → (B+S):(B-S)=3:2\n3(B-S)=2(B+S) → B=5S → S=15/5=3\n\n  START ═══════ D ═══════ PLACE\n    GO:   B+S=18 ──→  4 hrs\n    BACK: B-S=12 ←──  6 hrs\n\nAnswer: Stream speed = 3 km/h ✓" },
 
     { num: "11", title: "T_up Exceeds T_down by T hrs — Find Distance", color: "#e8590c", bg: "#fff4e6",
       q: "A boat travels at 10 km/h in still water and the stream speed is 2 km/h. If the upstream journey takes 2 hours more than the downstream journey, find the distance.",

@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Family Tree Symbols", color: "#1971c2", bg: "#d0ebff",
-      text: "+ = Male    - = Female    ? = Unknown\n═══ = Marriage (couple)\n│   = Parent-Child\n┌┴┐ = Siblings\n\n  [+Father] ═══ [-Mother]\n       │\n  ┌────┼────┐\n [+Son] [-Dau] [+Son]" },
+      text: "+ = Male    - = Female    ? = Unknown\n═══ = Marriage (couple)\n│   = Parent-Child\n┌┴┐ = Siblings\n\nWHY: Symbols let you draw any family fast.\n  + or - fixes gender; ═══ links spouses.\n\nEx: \"A is father of B, B married C\"\n  [+A]\n   │\n  [+B] ═══ [-C]" },
     { title: "Relation Shortcuts", color: "#2f9e44", bg: "#d8f5a2",
-      text: "Mother's husband = Father\nFather's wife = Mother\nBrother's/Sister's son = Nephew\nBrother's/Sister's daughter = Niece\nSon's wife = Daughter-in-law\nDaughter's husband = Son-in-law\nWife's brother = Brother-in-law" },
+      text: "Mother's husband = Father\nFather's wife = Mother\nBrother's/Sister's son = Nephew\nBrother's/Sister's daughter = Niece\nSon's wife = Daughter-in-law\nDaughter's husband = Son-in-law\nWife's brother = Brother-in-law\n\nWHY: Chains collapse to a single word.\n  Always simplify right-to-left.\n\nEx: \"Mother's brother's son\" = Cousin\n  Mother's brother = Uncle → Uncle's son" },
     { title: "Generation Levels", color: "#7048e8", bg: "#e5dbff",
-      text: "Gen +2: Grandfather, Grandmother\nGen +1: Father, Mother, Uncle, Aunt\nGen  0: Self, Brother, Sister, Spouse\nGen -1: Son, Daughter, Nephew, Niece\nGen -2: Grandson, Granddaughter\n\nParent word = UP 1, Child word = DOWN 1" },
+      text: "Gen +2: Grandfather, Grandmother\nGen +1: Father, Mother, Uncle, Aunt\nGen  0: Self, Brother, Sister, Spouse\nGen -1: Son, Daughter, Nephew, Niece\nGen -2: Grandson, Granddaughter\n\nWHY: Count parent/child words to find gap.\n  Each \"parent\" goes UP 1, \"child\" goes DOWN 1.\n\nEx: \"Father's father\" = 2 ups = Gen +2\n  = Grandfather" },
     { title: "'Only' Keyword Patterns", color: "#e03131", bg: "#ffe3e3",
-      text: "\"only son of my mother\" = myself(M)\n\"only daughter of my father\" = myself(F)\n\"only child\" = no siblings\n\"only son\" = no brothers\n\"only daughter\" = no sisters\n\nGENDER: he/him/father/son = Male\n        she/her/mother/daughter = Female" }
+      text: "\"only son of my mother\" = myself(M)\n\"only daughter of my father\" = myself(F)\n\"only child\" = no siblings\n\"only son\" = no brothers\n\"only daughter\" = no sisters\n\nWHY: \"only\" eliminates other siblings.\n  Only son of my mother = I am that son.\n\nEx: \"He is the only son of my mother\"\n  = He is me (speaker is male)\n\nGENDER: he/him/father/son = Male\n        she/her/mother/daughter = Female" }
   ],
 
   types: [

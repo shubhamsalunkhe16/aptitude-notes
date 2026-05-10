@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Basic Profit & Loss Formulas", color: "#1971c2", bg: "#d0ebff",
-      text: "Profit = SP - CP  (when SP > CP)\nLoss = CP - SP  (when CP > SP)\n\nProfit% = (Profit / CP) × 100\nLoss% = (Loss / CP) × 100\n\nSP = CP × (100 + P%) / 100\nSP = CP × (100 - L%) / 100\n\nCP = SP × 100 / (100 + P%)\nCP = SP × 100 / (100 - L%)" },
+      text: "Profit = SP - CP  (when SP > CP)\nLoss = CP - SP  (when CP > SP)\n\nProfit% = (Profit / CP) × 100\nLoss% = (Loss / CP) × 100\n\nSP = CP × (100 + P%) / 100\nSP = CP × (100 - L%) / 100\n\nCP = SP × 100 / (100 + P%)\nCP = SP × 100 / (100 - L%)\n\nWHY: P% is profit as fraction of CP.\n  SP = CP + P% of CP = CP×(100+P%)/100.\n  Invert to get CP from SP.\n\nEx: CP=400, P%=25\n  SP=400×125/100=500, Profit=100" },
     { title: "Discount & Marked Price Formulas", color: "#2f9e44", bg: "#ebfbee",
-      text: "Discount = MP - SP\nDiscount% = (Discount / MP) × 100\n\nSP = MP × (100 - D%) / 100\n\nMarkup m%, Discount d%:\n  SP = CP × (100+m)/100 × (100-d)/100\n  Net P% = [(100+m)(100-d)/100] - 100\n\nSuccessive discounts d1%, d2%:\n  Single = d1 + d2 - (d1×d2)/100 %" },
+      text: "Discount = MP - SP\nDiscount% = (Discount / MP) × 100\n\nSP = MP × (100 - D%) / 100\n\nMarkup m%, Discount d%:\n  SP = CP × (100+m)/100 × (100-d)/100\n  Net P% = [(100+m)(100-d)/100] - 100\n\nSuccessive discounts d1%, d2%:\n  Single = d1 + d2 - (d1×d2)/100 %\n\nWHY: MP is inflated CP. Discount cuts MP.\n  Two steps: CP→MP (markup), MP→SP (disc).\n  Net effect combines both multipliers.\n\nEx: CP=200, m=50%, d=20%\n  MP=300, SP=300×80/100=240, P%=20%" },
     { title: "Special Formulas", color: "#e8590c", bg: "#fff4e6",
-      text: "Dishonest dealer (wrong weight):\n  Gain% = (True-False)/False × 100\n\nCP of X = SP of Y:\n  P% = (X-Y)/Y × 100  (X>Y → profit)\n\nBuy X Get Y Free:\n  Discount% = Y/(X+Y) × 100\n\nTwo items same SP, same P%=L%:\n  Always LOSS = P²/100 %" },
+      text: "Dishonest dealer (wrong weight):\n  Gain% = (True-False)/False × 100\n\nCP of X = SP of Y:\n  P% = (X-Y)/Y × 100  (X>Y → profit)\n\nBuy X Get Y Free:\n  Discount% = Y/(X+Y) × 100\n\nTwo items same SP, same P%=L%:\n  Always LOSS = P²/100 %\n\nWHY (wrong wt): Sells less, charges full.\n  Extra goods = True-False, base = False.\nWHY (same P%=L%): Loss-side CP > Profit-side CP,\n  so loss amount exceeds profit amount.\n\nEx: True=1000g, False=900g\n  Gain%=(1000-900)/900×100=11.1%" },
     { title: "Ratio & Chain Formulas", color: "#7048e8", bg: "#e5dbff",
-      text: "CP:SP = a:b\n  Profit% = (b-a)/a × 100  (b>a)\n  Loss% = (a-b)/a × 100  (a>b)\n\nSuccessive P% then L%:\n  Net = P - L - (P×L)/100\n\nChain: Manuf → Whole → Retail\n  Final = CP × (100+P1)/100 × (100+P2)/100 × ...\n\nBreak-even: Total SP = Total CP" }
+      text: "CP:SP = a:b\n  Profit% = (b-a)/a × 100  (b>a)\n  Loss% = (a-b)/a × 100  (a>b)\n\nSuccessive P% then L%:\n  Net = P - L - (P×L)/100\n\nChain: Manuf → Whole → Retail\n  Final = CP × (100+P1)/100 × (100+P2)/100 × ...\n\nBreak-even: Total SP = Total CP\n\nWHY: Ratio gives relative sizes directly.\n  P or L% always uses CP (=a) as base.\n  Chain = multiply all stage multipliers.\n\nEx: CP:SP=4:5 → P%=(5-4)/4×100=25%\n  Successive +20% then -10%:\n  Net=20-10-200/100=+8%" }
   ],
 
   types: [

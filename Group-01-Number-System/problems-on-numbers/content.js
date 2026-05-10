@@ -3,17 +3,17 @@ module.exports = {
 
   formulas: [
     { title: "Two-Digit Number Representation", color: "#2f9e44", bg: "#ebfbee",
-      text: "Number = 10a + b  (a=tens, b=units)\nReversed = 10b + a\nDifference = 9(a-b)\n\nThree-digit: 100a + 10b + c\nReversed: 100c + 10b + a\nDifference = 99(a-c)" },
+      text: "Number = 10a + b  (a=tens, b=units)\nReversed = 10b + a\nDifference = 9(a-b)\n\nThree-digit: 100a + 10b + c\nReversed: 100c + 10b + a\nDifference = 99(a-c)\n\nWHY: (10a+b)-(10b+a) = 9a-9b = 9(a-b)\n  Similarly 100(a-c)+0+c-a = 99(a-c)\n\nEx: Number=74 → Rev=47, Diff=74-47=27=9×3=9(7-4) ✓" },
     { title: "Sum & Difference Identity", color: "#1971c2", bg: "#d0ebff",
-      text: "If Sum = S,  Difference = D:\n  Larger  = (S + D) / 2\n  Smaller = (S - D) / 2\n  Product = (S² - D²) / 4\n\n(a+b)² = a² + b² + 2ab\n(a-b)² = a² + b² - 2ab\na² - b² = (a+b)(a-b)" },
+      text: "If Sum = S,  Difference = D:\n  Larger  = (S + D) / 2\n  Smaller = (S - D) / 2\n  Product = (S² - D²) / 4\n\n(a+b)² = a² + b² + 2ab\n(a-b)² = a² + b² - 2ab\na² - b² = (a+b)(a-b)\n\nWHY: L+S=S, L-S=D → add: 2L=S+D → L=(S+D)/2\n  Product=L×S = (S+D)/2 × (S-D)/2 = (S²-D²)/4\n\nEx: S=20, D=6 → L=13, S=7, Product=(400-36)/4=91=13×7 ✓" },
     { title: "Divisibility Rules", color: "#e8590c", bg: "#fff4e6",
-      text: "By 2 → last digit even\nBy 3 → digit sum ÷ 3\nBy 4 → last 2 digits ÷ 4\nBy 5 → last digit 0 or 5\nBy 6 → div by 2 AND 3\nBy 8 → last 3 digits ÷ 8\nBy 9 → digit sum ÷ 9\nBy 11 → |odd-place sum - even-place sum| ÷ 11" },
+      text: "By 2 → last digit even\nBy 3 → digit sum ÷ 3\nBy 4 → last 2 digits ÷ 4\nBy 5 → last digit 0 or 5\nBy 6 → div by 2 AND 3\nBy 8 → last 3 digits ÷ 8\nBy 9 → digit sum ÷ 9\nBy 11 → |odd-place sum - even-place sum| ÷ 11\n\nWHY: 10≡1(mod 3,9) so N≡digit sum(mod 3,9)\n  100≡1(mod 11 alternates ±1) → odd-even diff\n\nEx: 462 → 4+6+2=12 div by 3✓ |4+2-6|=0 div by 11✓" },
     { title: "LCM and HCF", color: "#7048e8", bg: "#e5dbff",
-      text: "LCM x HCF = Product of two numbers\nLCM = (a x b) / HCF\nHCF = (a x b) / LCM\n\nHCF = lowest powers of common primes\nLCM = highest powers of ALL primes\nHCF always divides LCM\nFor co-primes: HCF=1, LCM=a x b" },
+      text: "LCM x HCF = Product of two numbers\nLCM = (a x b) / HCF\nHCF = (a x b) / LCM\n\nHCF = lowest powers of common primes\nLCM = highest powers of ALL primes\nHCF always divides LCM\nFor co-primes: HCF=1, LCM=a x b\n\nWHY: If a=HCF×m, b=HCF×n (m,n coprime)\n  LCM=HCF×m×n, so HCF×LCM=HCF²×m×n=a×b\n\nEx: a=12, b=18 → HCF=6, LCM=36\n  6×36=216=12×18 ✓" },
     { title: "Remainder & Division", color: "#e03131", bg: "#ffe3e3",
-      text: "N = D x Q + R  (0 <= R < D)\nDividend = Divisor x Quotient + Remainder\n\nSame remainder R with D1,D2:\n  N - R divisible by LCM(D1,D2)\n  N = LCM(D1,D2) x k + R" },
+      text: "N = D x Q + R  (0 <= R < D)\nDividend = Divisor x Quotient + Remainder\n\nSame remainder R with D1,D2:\n  N - R divisible by LCM(D1,D2)\n  N = LCM(D1,D2) x k + R\n\nWHY: N-R is divisible by both D1 and D2\n  So N-R must be a multiple of LCM(D1,D2)\n\nEx: N÷5 rem 3, N÷7 rem 3 → N-3 div by LCM(5,7)=35\n  Smallest N=38: 38/5=7r3✓ 38/7=5r3✓" },
     { title: "Unit Digit Cyclicity", color: "#0c8599", bg: "#c3fae8",
-      text: "Cycle period 4: digits 2,3,7,8\n  2: 2,4,8,6  |  3: 3,9,7,1\n  7: 7,9,3,1  |  8: 8,4,2,6\nCycle period 2: digits 4,9\n  4: 4,6      |  9: 9,1\nCycle period 1: 0,1,5,6 (always same)\n\nFind n mod period → pick from cycle\nIf mod=0, use LAST value in cycle" }
+      text: "Cycle period 4: digits 2,3,7,8\n  2: 2,4,8,6  |  3: 3,9,7,1\n  7: 7,9,3,1  |  8: 8,4,2,6\nCycle period 2: digits 4,9\n  4: 4,6      |  9: 9,1\nCycle period 1: 0,1,5,6 (always same)\n\nFind n mod period → pick from cycle\nIf mod=0, use LAST value in cycle\n\nWHY: Unit digit of a^n depends only on unit digit of a\n  Multiplying repeats a fixed cycle in mod 10\n\nEx: Unit digit of 3^7 → period=4, 7 mod 4=3\n  3rd in cycle(3,9,7,1) → 7. So unit digit=7 ✓" }
   ],
 
   types: [

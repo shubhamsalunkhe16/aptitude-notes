@@ -3,13 +3,13 @@ module.exports = {
 
   formulas: [
     { title: "Filling Pipe Rate", color: "#2f9e44", bg: "#ebfbee",
-      text: "If pipe fills in n hours:\n  Rate = 1/n (per hour)\n\nTwo pipes A(a hrs) + B(b hrs):\n  Combined = 1/a + 1/b\n  Time = ab/(a+b)" },
+      text: "If pipe fills in n hours:\n  Rate = 1/n (per hour)\n\nTwo pipes A(a hrs) + B(b hrs):\n  Combined = 1/a + 1/b\n  Time = ab/(a+b)\n\nWHY: Each pipe fills a fraction per\n  hour. Combined rate = sum of rates.\n  Time = 1/(sum) = ab/(a+b).\n\nEx: A=6h, B=12h → Time=6×12/18=4h" },
     { title: "Leak / Outlet Pipe", color: "#1971c2", bg: "#d0ebff",
-      text: "Inlet fills, Outlet empties\nInlet rate = +1/a\nOutlet rate = -1/b\n\nNet rate = 1/a - 1/b\nTime = ab/(b-a) if b>a (net fills)\nNever fills if outlet >= inlet" },
+      text: "Inlet fills, Outlet empties\nInlet rate = +1/a\nOutlet rate = -1/b\n\nNet rate = 1/a - 1/b\nTime = ab/(b-a) if b>a (net fills)\nNever fills if outlet >= inlet\n\nWHY: Outlet works against inlet.\n  Net = 1/a - 1/b = (b-a)/ab.\n  Time = 1/net = ab/(b-a).\n\nEx: Inlet=10h, Outlet=15h →\n  Time = 10×15/(15-10) = 30h" },
     { title: "Leak Midway Formula", color: "#e8590c", bg: "#fff4e6",
-      text: "Pipe fills in a hrs, leak empties in b hrs\nNet time = ab/(b-a)\n\nLeak starts after t hours:\nFilled by pipe in t hrs = t/a\nRemaining = 1 - t/a\nTime for rest = remaining/(1/a - 1/b)" },
+      text: "Pipe fills in a hrs, leak empties in b hrs\nNet time = ab/(b-a)\n\nLeak starts after t hours:\nFilled by pipe in t hrs = t/a\nRemaining = 1 - t/a\nTime for rest = remaining/(1/a - 1/b)\n\nWHY: Before leak, pipe fills alone.\n  After leak, net rate drops to\n  1/a - 1/b. Remaining/net = time.\n\nEx: Pipe=6h, leak after 2h, leak=12h\n  Filled=2/6=1/3. Left=2/3.\n  Net=1/6-1/12=1/12 → 2/3÷1/12=8h" },
     { title: "Alternate / Interval Pipes", color: "#7048e8", bg: "#e5dbff",
-      text: "Pipes work in alternate hours:\nWork in 2-hr cycle = 1/a + 1/b\n\nPipes work in intervals:\nNet work per cycle × number of cycles\nCheck for partial last cycle" }
+      text: "Pipes work in alternate hours:\nWork in 2-hr cycle = 1/a + 1/b\n\nPipes work in intervals:\nNet work per cycle × number of cycles\nCheck for partial last cycle\n\nWHY: Each cycle contributes a fixed\n  fraction. Divide 1 by cycle-work\n  to find number of full cycles.\n\nEx: A=4h, B=6h, alternate hrs\n  Cycle=1/4+1/6=5/12. Full in\n  12/5=2.4 cycles ≈ 5 hrs" }
   ],
 
   types: [
@@ -31,11 +31,11 @@ module.exports = {
 
     { num: "5", title: "Pipes Work in Intervals", color: "#e03131", bg: "#ffe3e3",
       q: "Pipe A fills 1/3 of a tank in 1 hour. Pipe B fills 1/4 in 1 hour. A works for 1 hour, then B for 1 hour, alternately. How long to fill?",
-      tree: "LOGIC:\nStep 1: A=1/3/hr, B=1/4/hr\n  2-hr cycle: 1/3+1/4 = 7/12\nStep 2: 1 cycle(2h)=7/12, left=5/12\n  Hr3(A): 1/3=4/12, left=1/12\n  Hr4(B): (1/12)÷(1/4)=1/3 hr\n\nTRICK (LCM units):\nLCM tank=12 → A=4/hr, B=3/hr\n2-hr cycle=7 units. 1 cycle=7/12\nAfter 2h: 7 done, left=5\nHr3(A):4→left=1. Hr4(B):1/3 hr\n\nTotal = 3+1/3 = 3 hrs 20 min\n\nAnswer: 3 hours 20 minutes ✓" },
+      tree: "LOGIC:\nStep 1: A=1/3/hr, B=1/4/hr\n  2-hr cycle: 1/3+1/4 = 7/12\nStep 2: 1 cycle(2h)=7/12, left=5/12\n  Hr3(A): 1/3=4/12, left=1/12\n  Hr4(B): (1/12)÷(1/4)=1/3 hr\n\nTRICK (LCM units):\nLCM tank=12 → A=4/hr, B=3/hr\n\n  |H1 |H2 |H3 |H4     |\n  | A | B | A | B(1/3) |\n  | 4 | 3 | 4 | 1      | =12\n  |cycle 1| cycle 2+   |\n\nAfter 2h:7 done. Hr3(A):4→left=1\nHr4(B):1/3 hr → Total=3h 20min\n\nAnswer: 3 hours 20 minutes ✓" },
 
     { num: "6", title: "Alternate Opening", color: "#0c8599", bg: "#c3fae8",
       q: "Two pipes A and B can fill a tank in 20 and 30 minutes. They are opened alternately for 1 minute each, starting with A. When will the tank be full?",
-      tree: "LOGIC:\nStep 1: A=1/20/min, B=1/30/min\n  2-min cycle = 1/20+1/30 = 1/12\nStep 2: 11 cycles(22min) = 11/12\n  Left=1/12. Min23(A):1/20\n  After 23: 11/12+1/20=58/60, left=2/60=1/30\n  Min24(B): 1/30 at 1/30 rate = 1 min exact\n\nTRICK (LCM units):\nLCM(20,30)=60 → A=3/min, B=2/min\n2-min cycle=5 units. 12 cycles=60=full\nSo 24 min fills tank exactly.\nVerify: 11 cycles=55, +A(3)=58, +B(2)=60\n\nAnswer: 24 minutes ✓" },
+      tree: "LOGIC:\nStep 1: A=1/20/min, B=1/30/min\n  2-min cycle = 1/20+1/30 = 1/12\nStep 2: 11 cycles(22min) = 11/12\n  Left=1/12. Min23(A):1/20\n  After 23: 11/12+1/20=58/60, left=2/60=1/30\n  Min24(B): 1/30 at 1/30 rate = 1 min exact\n\nTRICK (LCM units):\nLCM(20,30)=60 → A=3/min, B=2/min\n\n  |M1|M2|M3|M4|...|M23|M24|\n  | A| B| A| B|...| A | B |\n  | 3| 2| 3| 2|...| 3 | 2 |\n  |cycle1|cycle2|  12 cycles=60\n\n12 cycles × 2min = 24 min exact\n\nAnswer: 24 minutes ✓" },
 
     { num: "7", title: "When to Close a Pipe", color: "#862e9c", bg: "#f3d9fa",
       q: "Two pipes A and B fill a tank in 10 and 15 hours. Both are opened but B is closed some time before the tank is full. Tank fills in 8 hours. When was B closed?",
