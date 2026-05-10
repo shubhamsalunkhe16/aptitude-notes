@@ -52,7 +52,12 @@ function wrapText(text, fontSize, fontFamily, maxWidth) {
       const words = line.split(' ');
       let cur = '';
       for (const word of words) {
-        if (cur.length + word.length + 1 <= maxChars) {
+        if (word.length > maxChars) {
+          if (cur) { result.push(cur); cur = ''; }
+          for (let j = 0; j < word.length; j += maxChars) {
+            result.push(word.slice(j, j + maxChars));
+          }
+        } else if (cur.length + word.length + 1 <= maxChars) {
           cur += (cur ? ' ' : '') + word;
         } else {
           if (cur) result.push(cur);
@@ -152,7 +157,9 @@ function generate(content) {
       const g = `f${i}`;
       const wrappedText = wrapText(f.text, 13, 3, fTextW);
       addRect(fx, fy, fW, fH, f.color, f.bg, g);
-      addText(fx + PAD, fy + 10, f.title, 17, 1, f.color, g);
+      let fTitleSize = 17;
+      while (textWidth(f.title, fTitleSize, 1) > fTextW && fTitleSize > 10) fTitleSize--;
+      addText(fx + PAD, fy + 10, f.title, fTitleSize, 1, f.color, g);
       addText(fx + PAD, fy + 35, wrappedText, 13, 3, "#1e1e1e", g);
       if (col === fCols - 1 || i === content.formulas.length - 1) {
         fCurY += fH + GAP;
@@ -224,7 +231,10 @@ function generate(content) {
       const wrappedQ = wrapQ(t.q);
       const qH = textHeight(wrappedQ, 13, 1);
       addRect(tx, curY, TYPE_W, rowH, t.color, t.bg, g);
-      addText(tx + PAD, curY + 8, `Type ${t.num}: ${t.title}`, 15, 1, t.color, g);
+      const typeTitle = `Type ${t.num}: ${t.title}`;
+      let tTitleSize = 15;
+      while (textWidth(typeTitle, tTitleSize, 1) > TYPE_TEXT_W && tTitleSize > 10) tTitleSize--;
+      addText(tx + PAD, curY + 8, typeTitle, tTitleSize, 1, t.color, g);
       addText(tx + PAD, curY + 30, wrappedQ, 13, 1, "#1e1e1e", g);
       addText(tx + PAD, curY + 40 + qH, "Solution:", 13, 1, t.color, g);
       addText(tx + PAD, curY + 62 + qH, t.tree, 12, 3, "#1e1e1e", g);
