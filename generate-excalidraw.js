@@ -84,9 +84,9 @@ function textWidth(text, fontSize, fontFamily) {
   return Math.ceil(maxLen * cw);
 }
 
-function addText(x, y, text, fontSize, fontFamily, color, group) {
+function addText(x, y, text, fontSize, fontFamily, color, group, maxW) {
   const lh = fontFamily === 3 ? 1.2 : 1.25;
-  const w = textWidth(text, fontSize, fontFamily);
+  const w = maxW ? Math.min(textWidth(text, fontSize, fontFamily), maxW) : textWidth(text, fontSize, fontFamily);
   const h = textHeight(text, fontSize, fontFamily);
   elements.push({
     id: getId(), type: "text", x, y, width: w, height: h,
@@ -117,10 +117,10 @@ function generate(content) {
   let curY = 20;
 
   // --- TITLE ---
-  const titleW = textWidth(content.title, 16, 1);
+  const titleW = Math.min(textWidth(content.title, 16, 1), FULL_W - PAD * 2);
   const titleX = LEFT + Math.max(0, Math.floor((FULL_W - titleW) / 2));
   addRect(LEFT, curY, FULL_W, 50, "#1e1e1e", "#1e1e1e", "title");
-  addText(titleX, curY + 15, content.title, 16, 1, "#ffffff", "title");
+  addText(titleX, curY + 15, content.title, 16, 1, "#ffffff", "title", FULL_W - PAD * 2);
   curY += 70;
 
   // --- FORMULAS ---
@@ -159,8 +159,8 @@ function generate(content) {
       addRect(fx, fy, fW, fH, f.color, f.bg, g);
       let fTitleSize = 17;
       while (textWidth(f.title, fTitleSize, 1) > fTextW && fTitleSize > 10) fTitleSize--;
-      addText(fx + PAD, fy + 10, f.title, fTitleSize, 1, f.color, g);
-      addText(fx + PAD, fy + 35, wrappedText, 13, 3, "#1e1e1e", g);
+      addText(fx + PAD, fy + 10, f.title, fTitleSize, 1, f.color, g, fTextW);
+      addText(fx + PAD, fy + 35, wrappedText, 13, 3, "#1e1e1e", g, fTextW);
       if (col === fCols - 1 || i === content.formulas.length - 1) {
         fCurY += fH + GAP;
       }
@@ -234,10 +234,10 @@ function generate(content) {
       const typeTitle = `Type ${t.num}: ${t.title}`;
       let tTitleSize = 15;
       while (textWidth(typeTitle, tTitleSize, 1) > TYPE_TEXT_W && tTitleSize > 10) tTitleSize--;
-      addText(tx + PAD, curY + 8, typeTitle, tTitleSize, 1, t.color, g);
-      addText(tx + PAD, curY + 30, wrappedQ, 13, 1, "#1e1e1e", g);
-      addText(tx + PAD, curY + 40 + qH, "Solution:", 13, 1, t.color, g);
-      addText(tx + PAD, curY + 62 + qH, t.tree, 12, 3, "#1e1e1e", g);
+      addText(tx + PAD, curY + 8, typeTitle, tTitleSize, 1, t.color, g, TYPE_TEXT_W);
+      addText(tx + PAD, curY + 30, wrappedQ, 13, 1, "#1e1e1e", g, TYPE_TEXT_W);
+      addText(tx + PAD, curY + 40 + qH, "Solution:", 13, 1, t.color, g, TYPE_TEXT_W);
+      addText(tx + PAD, curY + 62 + qH, t.tree, 12, 3, "#1e1e1e", g, TYPE_TEXT_W);
     });
 
     curY += rowH + GAP;
